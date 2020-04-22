@@ -1,0 +1,43 @@
+======================================================================================================================================
+Si fillim kjo duhet te kete nje info larte ku tregon se cila biblotek eshte dhe rregulloja e perdorimit te librezes qe leshohet nga Bibloteka. /Info/
+======================================================================================================================================
+1. Form - Regjistrimi i Lexuesve
+Nje Tabel ne Database me emrin "Lexuesit" dhe me krejt te dhenat duke perfshire edhe Subscription i cili tregon kur skadon.
+Databaza lexuesit duhet te kete:
+Nje numer identifikues qe fillon prej 0 - 4000 i cili duhet te jete unik per secilin lexues.
+Duhet te kete daten kur eshte regjistru (Subscription 1 vjet)
+Sektorin e leximit se ne cilen pjese eshte i lejum me lexu.
+Emrin dhe Mbiemrin
+Profesioni apo Fakulteti ku eshte.
+Adresa
+Numri Identifikues(Optional)
+Qmimi
+
+======================================================================================================================================
+
+2. Form - Per mbajtesit e librave
+Databasa duhet te kete emrin MbajtesitLibrave:
+Emri i Librit,
+Data kur eshte marr,
+Data kur duhet mu kthy,
+Emri i Puntorit qe ja ka dhene libren.
+
+======================================================================================================================================
+
+3. Form - Regjistrimi i librave
+Databasa duhet te kete emrin RegjistrimiLibrave:
+Emri i Librit,
+Autori i Librit,
+Sasia ne Stock,
+*Duhet mu lidh ne menyre automatike nese nje student(lexues) e ka kete liber atehere ne stock te tregon databaza nje me pak (si nje lloj query nuk e di a munum me realizu).
+
+======================================================================================================================================
+
+4. Form - Regjistrimi i vendeve / Te lire / Te zena si dhe Evidentimi i Hyrjes dhe Daljes se Lexuesve
+Databaze duhet te kete emrin Vendet:
+Nje numer identifikues ID unik qe tregon vetem ate vend (1-4000)
+Emrin e personit (qe eshte Ule)
+Koha kur e ka zene vendin
+Koha kur e ka liru vendin
+
+======================================================================================================================================
