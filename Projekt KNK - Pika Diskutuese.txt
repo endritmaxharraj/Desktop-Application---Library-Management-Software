@@ -1,34 +1,40 @@
 ======================================================================================================================================
 Si fillim kjo duhet te kete nje info larte ku tregon se cila biblotek eshte dhe rregulloja e perdorimit te librezes qe leshohet nga Bibloteka. /Info/
+Lidhja mes databazes dhe programit duhet te jete ne menyre dinamike cdo here pas ndryshimit ne program inputi i zhfryzuesit te programit te cila tabel ka kerkuar ai do te ruhet menjeher dhe te behet loadTable pas cdo ndryshimi ne tabel.
+
 ======================================================================================================================================
 1. Form - Regjistrimi i Lexuesve
 Nje Tabel ne Database me emrin "Lexuesit" dhe me krejt te dhenat duke perfshire edhe Subscription i cili tregon kur skadon.
 Databaza lexuesit duhet te kete:
 Nje numer identifikues qe fillon prej 0 - 4000 i cili duhet te jete unik per secilin lexues.
 Duhet te kete daten kur eshte regjistru (Subscription 1 vjet)
-Sektorin e leximit se ne cilen pjese eshte i lejum me lexu.
-Emrin dhe Mbiemrin
-Profesioni apo Fakulteti ku eshte.
-Adresa
-Numri Identifikues(Optional)
-Qmimi
+Sektorin e leximit se ne cilen pjese eshte i lejum me lexu, tipi(varchar)
+Emrin dhe Mbiemrin ,specifikon emrin dhe mbiemrin ,tipi(varchar)
+Profesioni apo Fakulteti ku eshte, specifikon fakultetin ose profesionin e studentit, tipi (varchar)
+Adresa, specifikon adresen e lexuesit (varchar)
+Qmimi ,specifikon qmimin e antarsimit ne biblotek (double)
 
 ======================================================================================================================================
 
 2. Form - Per mbajtesit e librave
 Databasa duhet te kete emrin MbajtesitLibrave:
-Emri i Librit,
-Data kur eshte marr,
-Data kur duhet mu kthy,
-Emri i Puntorit qe ja ka dhene libren.
+MarrjaLibritID qe eshte nje ID specifike dhe primary Key ne tabelen MbajtesitLibrave (INT) 
+ISBNKodi specifikon ISBN-n e librit ndryshe si international standard book number ,tipi (INT)
+Emri i Librit, specifikon emrin e librit ,tipi(varchar)
+Autori i Librit,specifikon autorin e librit , tipi(varchar)
+Data kur eshte marr, specifikon daten e marrjes se librit , tipi(Date)
+Data kur duhet mu kthy, specifikon daten e kthmit te librit , tipi(Date)
+Emri i Puntorit qe ja ka dhene libren. specifikon Emrin e puntorit qe ka dhene librin ,tipi (varchar)
 
 ======================================================================================================================================
 
 3. Form - Regjistrimi i librave
 Databasa duhet te kete emrin RegjistrimiLibrave:
-Emri i Librit,
-Autori i Librit,
-Sasia ne Stock,
+RegjistrimiID qe eshte nje ID specifike dhe primary Key ne tabelen RegjistrimiLibrave (INT) IN range (1-4000)
+Emri i Librit, specifion emrin e librit , tipi (varchar)
+ISBNKodi specifikon ISBN-n e librit ndryshe si international standard book number ,tipi (INT)
+Autori i Librit,specifikon autorin e librit , tipi(varchar)
+Sasia ne Stock, specifion sasin e librave ne stok ,tipi (int)
 *Duhet mu lidh ne menyre automatike nese nje student(lexues) e ka kete liber atehere ne stock te tregon databaza nje me pak (si nje lloj query nuk e di a munum me realizu).
 
 ======================================================================================================================================
@@ -36,8 +42,8 @@ Sasia ne Stock,
 4. Form - Regjistrimi i vendeve / Te lire / Te zena si dhe Evidentimi i Hyrjes dhe Daljes se Lexuesve
 Databaze duhet te kete emrin Vendet:
 Nje numer identifikues ID unik qe tregon vetem ate vend (1-4000)
-Emrin e personit (qe eshte Ule)
-Koha kur e ka zene vendin
-Koha kur e ka liru vendin
+Emrin e personit (qe eshte Ule) , specifikon emrin e personit qe ulet ne ulsen e biblotekes , tipi(varchar)
+Koha kur e ka zene vendin ,specifikon kohen kur studenti e ka zene vendin ne biblotek , tipi(Date)
+Koha kur e ka liru vendini ,specifikon kohen kur e ka liru vendin , tipi(Date)
 
 ======================================================================================================================================
