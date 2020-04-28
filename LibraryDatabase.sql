@@ -12,8 +12,8 @@ Primary Key(user_id));
 
 -- INSERT ne Users
 INSERT into Users(user_name, user_pass, user_type)
-Values('User1', '1234','admin'),
-	  ('User2', '1234', 'user');
+Values('admin', '1234','admin'),
+	  ('user', '1234', 'user');
 
 -- Tabela Lexuesit
 Create Table Lexuesit (

@@ -11,7 +11,7 @@
 
 .button {
   -fx-text-fill: #FFF;
-  -fx-background-color: #008080;
+  -fx-background-color: #000000;
 }
 
 .button:hover, .button:active, .button:focus {

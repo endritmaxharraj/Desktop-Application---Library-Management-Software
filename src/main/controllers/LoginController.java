@@ -23,8 +23,6 @@ import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
 
-	Connection conn;
-
 	@FXML
 	private TextField usernameField;
 
@@ -36,77 +34,49 @@ public class LoginController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		try {
-			initDb();
-
-		} catch (Exception e) {
-			printError(e);
-		}
 	}
 
 	@FXML
 	private void loginButtonClicked(ActionEvent event) throws Exception {
-		ResultSet rs;
-		
-		// get username and password from fxml
 		String username = usernameField.getText();
 		String password = passwordField.getText();
-		String user_type = "admin";
-		
-		// query qe ben check per username dhe password qe tregon nese o admin shko te
-		// adminpanel nese o user i thjesht shko te userpanel
-		String query = "SELECT * FROM `users` WHERE `user_name` = ? AND `user_pass` = ? AND `user_type` = ?";
-		
-//		String queryAdmin = "SELECT * FROM `users` WHERE `user_type` = admin";
-//		String queryUser = "SELECT * FROM `users` WHERE `user_type` = user";
 
 		try {
-			PreparedStatement stmt = conn.prepareStatement(query);
+			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root",
+					"password");
+			String SQL = "SELECT * FROM `users` WHERE `user_name` = ? AND `user_pass` = ?";
+			PreparedStatement stmt = con.prepareStatement(SQL);
 			stmt.setString(1, username);
 			stmt.setString(2, password);
-			stmt.setString(3, user_type);
+			ResultSet rs1 = stmt.executeQuery();
 
-			rs = stmt.executeQuery();
-
-			if(rs.next())
-			{
-				Parent parent = FXMLLoader.load(getClass().getResource("../views/admin.fxml"));
-				Scene scene = new Scene(parent);
-				Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				primaryStage.setScene(scene);
-				primaryStage.show();
-
-			}
-			else {
-				Parent parent = FXMLLoader.load(getClass().getResource("../views/user.fxml"));
-				Scene scene = new Scene(parent);
-				Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				primaryStage.setScene(scene);
-				primaryStage.show();
-			}
-			
-			
-
+			if (rs1.next())
+				{
+					// Login Succesfully Admin
+					String getUserType = rs1.getNString("user_type");
+					if (getUserType.equals("admin")) {
+					Parent parent = FXMLLoader.load(getClass().getResource("../views/admin.fxml"));
+					Scene scene = new Scene(parent);
+					Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+					primaryStage.setScene(scene);
+					primaryStage.show();
+				} else if (getUserType.equals("user")) {
+					// Login Succesfully User
+					Parent parent = FXMLLoader.load(getClass().getResource("../views/user.fxml"));
+					Scene scene = new Scene(parent);
+					Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+					primaryStage.setScene(scene);
+					primaryStage.show();
+				}
+				}
+				else {
+					Alert alert = new Alert(AlertType.ERROR);
+					alert.setContentText("Invalid credentials!");
+					alert.showAndWait();
+				}
+			con.close();
 		} catch (Exception e) {
-			printError(e);
-		}
-
-	}
-
-	private void printError(Exception e) {
-		Alert alert = new Alert(AlertType.ERROR);
-		alert.setHeaderText("Error");
-		alert.setContentText(e.toString());
-		alert.showAndWait();
-	}
-
-	private void initDb() throws Exception {
-		if (conn == null || conn.isClosed()) {
-			// Class.forName("com.mysql.cj.jdbc.Driver");
-			// Class.forName("org.sqlite.JDBC");
-			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root", "toor");
-			// conn = DriverManager.getConnection("jdbc:sqlite:knk.db");
+			System.out.println(e);
 		}
 	}
-	
 }
