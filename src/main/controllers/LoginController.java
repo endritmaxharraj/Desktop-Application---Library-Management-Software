@@ -104,7 +104,7 @@ public class LoginController implements Initializable {
 		if (conn == null || conn.isClosed()) {
 			// Class.forName("com.mysql.cj.jdbc.Driver");
 			// Class.forName("org.sqlite.JDBC");
-			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root", "Qapobon123");
+			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root", "toor");
 			// conn = DriverManager.getConnection("jdbc:sqlite:knk.db");
 		}
 	}
