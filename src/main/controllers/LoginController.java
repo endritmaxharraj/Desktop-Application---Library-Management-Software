@@ -19,9 +19,31 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
+
+	double x, y;
+
+	@FXML
+	void draged(MouseEvent event) {
+
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setX(event.getScreenX() - x);
+		primaryStage.setY(event.getScreenY() - y);
+	}
+
+	@FXML
+	void pressed(MouseEvent event) {
+		x = event.getSceneX();
+		y = event.getSceneY();
+	}
+
+	@FXML
+	private VBox vBox;
 
 	@FXML
 	private TextField usernameField;
@@ -31,6 +53,21 @@ public class LoginController implements Initializable {
 
 	@FXML
 	private Button loginButton;
+
+	@FXML
+	private ImageView LoginLogo;
+
+	@FXML
+	private void min(MouseEvent event) {
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setIconified(true);
+	}
+
+	@FXML
+	private void close(MouseEvent event) {
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.close();
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -43,7 +80,7 @@ public class LoginController implements Initializable {
 
 		try {
 			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root",
-					"password");
+					"Qapobon123");
 			String SQL = "SELECT * FROM `users` WHERE `user_name` = ? AND `user_pass` = ?";
 			PreparedStatement stmt = con.prepareStatement(SQL);
 			stmt.setString(1, username);
@@ -59,6 +96,7 @@ public class LoginController implements Initializable {
 					Scene scene = new Scene(parent);
 					Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 					primaryStage.setScene(scene);
+					primaryStage.centerOnScreen();
 					primaryStage.show();
 				} else if (getUserType.equals("user")) {
 					// Login Succesfully User
@@ -66,6 +104,7 @@ public class LoginController implements Initializable {
 					Scene scene = new Scene(parent);
 					Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 					primaryStage.setScene(scene);
+					primaryStage.centerOnScreen();
 					primaryStage.show();
 				}
 				}
