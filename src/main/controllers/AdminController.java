@@ -45,7 +45,10 @@ public class AdminController implements Initializable {
 	private MenuItem About;
 
 	@FXML
-	private Label welcome;
+	private Label lab;
+
+	@FXML
+	private Label lab1;
 
 	@FXML
 	private Button regjistroTeDhenaButton;
@@ -64,6 +67,10 @@ public class AdminController implements Initializable {
 
 	@FXML
 	private Button qkyquButton;
+
+	public void setText(String name) {
+		this.lab.setText(name);
+	}
 
 	@FXML
 	private void min(MouseEvent event) {

@@ -4,6 +4,20 @@
 .label {
 	-fx-text-fill: #FFFFFF;
 }
+
+#welcometext {
+	-fx-text-fill: #FFF;
+	-fx-font-size: 20px;
+	-fx-font-family: sans-serif;
+	-fx-font-style: normal;
+}
+
+#lab2 {
+	-fx-text-fill: #FD3C06;
+	-fx-font-size: 20px;
+	-fx-font-family: sans-serif;
+	-fx-font-style: normal;
+}
 .menuBar {
 	-fx-background-color: #1F3B4D;
 	-fx-text-fill: #000000;
@@ -20,7 +34,6 @@
 .xClick:hover {
 	-fx-cursor: hand;
 }
-
 .buttons {
   -fx-background-color: #1F3B4D;
   -fx-background-radius: 0;

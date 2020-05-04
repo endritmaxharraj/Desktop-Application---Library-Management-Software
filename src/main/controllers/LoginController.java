@@ -17,9 +17,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -58,6 +61,9 @@ public class LoginController implements Initializable {
 	private ImageView LoginLogo;
 
 	@FXML
+	private Label lab;
+
+	@FXML
 	private void min(MouseEvent event) {
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setIconified(true);
@@ -75,16 +81,14 @@ public class LoginController implements Initializable {
 
 	@FXML
 	private void loginButtonClicked(ActionEvent event) throws Exception {
-		String username = usernameField.getText();
-		String password = passwordField.getText();
-
+		FXMLLoader loader = new FXMLLoader();
 		try {
 			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root",
 					"Qapobon123");
 			String SQL = "SELECT * FROM `users` WHERE `user_name` = ? AND `user_pass` = ?";
 			PreparedStatement stmt = con.prepareStatement(SQL);
-			stmt.setString(1, username);
-			stmt.setString(2, password);
+			stmt.setString(1, usernameField.getText());
+			stmt.setString(2, passwordField.getText());
 			ResultSet rs1 = stmt.executeQuery();
 
 			if (rs1.next())
@@ -92,20 +96,34 @@ public class LoginController implements Initializable {
 					// Login Succesfully Admin
 					String getUserType = rs1.getNString("user_type");
 					if (getUserType.equals("admin")) {
-					Parent parent = FXMLLoader.load(getClass().getResource("../views/admin.fxml"));
+						loader.setLocation(getClass().getResource("../views/admin.fxml"));
+						loader.load();
+						Parent parent = loader.getRoot();
 					Scene scene = new Scene(parent);
 					Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 					primaryStage.setScene(scene);
 					primaryStage.centerOnScreen();
 					primaryStage.show();
+					scene.setOnKeyPressed(e -> {
+						if (e.getCode() == KeyCode.ESCAPE) {
+							primaryStage.close();
+						}
+					});
 				} else if (getUserType.equals("user")) {
 					// Login Succesfully User
-					Parent parent = FXMLLoader.load(getClass().getResource("../views/user.fxml"));
+					loader.setLocation(getClass().getResource("../views/user.fxml"));
+					loader.load();
+					Parent parent = loader.getRoot();
 					Scene scene = new Scene(parent);
 					Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 					primaryStage.setScene(scene);
 					primaryStage.centerOnScreen();
 					primaryStage.show();
+					scene.setOnKeyPressed(e -> {
+						if (e.getCode() == KeyCode.ESCAPE) {
+							primaryStage.close();
+						}
+					});
 				}
 				}
 				else {
@@ -117,5 +135,130 @@ public class LoginController implements Initializable {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		AdminController admin = loader.getController();
+		admin.setText(usernameField.getText());
 	}
+
+	@FXML
+	private void enterKeyPressLogin(KeyEvent event) {
+		if (event.getCode() == KeyCode.ENTER) {
+			FXMLLoader loader = new FXMLLoader();
+			try {
+				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root",
+						"Qapobon123");
+				String SQL = "SELECT * FROM `users` WHERE `user_name` = ? AND `user_pass` = ?";
+				PreparedStatement stmt = con.prepareStatement(SQL);
+				stmt.setString(1, usernameField.getText());
+				stmt.setString(2, passwordField.getText());
+				ResultSet rs1 = stmt.executeQuery();
+
+				if (rs1.next()) {
+					// Login Succesfully Admin
+					String getUserType = rs1.getNString("user_type");
+					if (getUserType.equals("admin")) {
+						loader.setLocation(getClass().getResource("../views/admin.fxml"));
+						loader.load();
+						Parent parent = loader.getRoot();
+						Scene scene = new Scene(parent);
+						Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+						primaryStage.setScene(scene);
+						primaryStage.centerOnScreen();
+						primaryStage.show();
+						scene.setOnKeyPressed(e -> {
+							if (e.getCode() == KeyCode.ESCAPE) {
+								primaryStage.close();
+							}
+						});
+					} else if (getUserType.equals("user")) {
+						// Login Succesfully User
+						loader.setLocation(getClass().getResource("../views/user.fxml"));
+						loader.load();
+						Parent parent = loader.getRoot();
+						Scene scene = new Scene(parent);
+						Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+						primaryStage.setScene(scene);
+						primaryStage.centerOnScreen();
+						primaryStage.show();
+						scene.setOnKeyPressed(e -> {
+							if (e.getCode() == KeyCode.ESCAPE) {
+								primaryStage.close();
+							}
+						});
+					}
+				} else {
+					Alert alert = new Alert(AlertType.ERROR);
+					alert.setContentText("Invalid credentials!");
+					alert.showAndWait();
+				}
+				con.close();
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+			AdminController admin = loader.getController();
+			admin.setText(usernameField.getText());
+		}
+
+	}
+
+	@FXML
+	private void enterKeyPassLogin(KeyEvent event) {
+		if (event.getCode() == KeyCode.ENTER) {
+			FXMLLoader loader = new FXMLLoader();
+			try {
+				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root",
+						"Qapobon123");
+				String SQL = "SELECT * FROM `users` WHERE `user_name` = ? AND `user_pass` = ?";
+				PreparedStatement stmt = con.prepareStatement(SQL);
+				stmt.setString(1, usernameField.getText());
+				stmt.setString(2, passwordField.getText());
+				ResultSet rs1 = stmt.executeQuery();
+
+				if (rs1.next()) {
+					// Login Succesfully Admin
+					String getUserType = rs1.getNString("user_type");
+					if (getUserType.equals("admin")) {
+						loader.setLocation(getClass().getResource("../views/admin.fxml"));
+						loader.load();
+						Parent parent = loader.getRoot();
+						Scene scene = new Scene(parent);
+						Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+						primaryStage.setScene(scene);
+						primaryStage.centerOnScreen();
+						primaryStage.show();
+						scene.setOnKeyPressed(e -> {
+							if (e.getCode() == KeyCode.ESCAPE) {
+								primaryStage.close();
+							}
+						});
+					} else if (getUserType.equals("user")) {
+						// Login Succesfully User
+						loader.setLocation(getClass().getResource("../views/user.fxml"));
+						loader.load();
+						Parent parent = loader.getRoot();
+						Scene scene = new Scene(parent);
+						Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+						primaryStage.setScene(scene);
+						primaryStage.centerOnScreen();
+						primaryStage.show();
+						scene.setOnKeyPressed(e -> {
+							if (e.getCode() == KeyCode.ESCAPE) {
+								primaryStage.close();
+							}
+						});
+					}
+				} else {
+					Alert alert = new Alert(AlertType.ERROR);
+					alert.setContentText("Invalid credentials!");
+					alert.showAndWait();
+				}
+				con.close();
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+			AdminController admin = loader.getController();
+			admin.setText(usernameField.getText());
+		}
+
+	}
+
 }

@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox alignment="TOP_CENTER" minHeight="400.0" minWidth="800.0" onMouseDragged="#draged" onMousePressed="#pressed" prefHeight="400.0" prefWidth="800.0" spacing="25.0" styleClass="vBox" stylesheets="@../styles/admin.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.AdminController">
    <children>
@@ -59,11 +60,23 @@
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </VBox.margin>
       </HBox>
-      <Label fx:id="welcome" text="Welcome, Admin to the Admin Panel">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
+      <HBox alignment="CENTER" prefHeight="3.0" prefWidth="800.0" spacing="4.0">
+         <children>
+            <Text id="welcometext" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome,">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="1.0" />
+               </HBox.margin>
+            </Text>
+            <Label id="lab2" fx:id="lab">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
             <Button fx:id="regjistroTeDhenaButton" mnemonicParsing="false" onAction="#regjistroTeDhenaButtonClicked" prefHeight="49.0" prefWidth="147.0" styleClass="buttons" stylesheets="@../styles/admin.css" text="REGJISTRO TE DHENA" />
