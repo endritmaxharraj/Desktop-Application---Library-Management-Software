@@ -34,6 +34,7 @@
 .xClick:hover {
 	-fx-cursor: hand;
 }
+
 .buttons {
   -fx-background-color: #1F3B4D;
   -fx-background-radius: 0;

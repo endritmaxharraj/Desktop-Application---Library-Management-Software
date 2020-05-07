@@ -19,16 +19,12 @@ Values('admin', '1234','admin'),
 -- Tabela Lexuesit
 Create Table Lexuesit (
 Id INT NOT NULL AUTO_INCREMENT,
-Regjistrimi Date NOT NULL,
-Sektori varchar(40) NOT NULL,
+Emri varchar(25) NOT NULL,
+Mbiemri varchar(25) NOT NULL,
 Profesioni varchar(40) NOT NULL,
 Adresa varchar(255) NOT NULL,
+Sektori varchar(40) NOT NULL,
 Cmimi INT NOT NULL,
+Regjistrimi Date NOT NULL,
+Skadimi Date NOT NULL,
 Primary Key(Id));
-
-
-
-
-
-
-

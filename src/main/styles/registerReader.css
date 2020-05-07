@@ -1,0 +1,154 @@
+.anchor {
+		-fx-background-color: #1F3B4D;
+}
+.left-anchor {
+		-fx-background-color: #1F3B4D;
+}
+.button-anchor {
+		-fx-background-color: #36013F;
+		-fx-text-fill: #fff;
+}
+.right-anchor {
+		-fx-background-color: #1F3B4D;
+}
+
+.buttons {
+  -fx-background-color: #1F3B4D;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-border-radius: 0;
+  -fx-border-width: 2px;
+  -fx-color: white;
+  -fx-text-align: center;
+  -fx-text-fill: #FFFFFF;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-size: 12px;
+  -fx-wrap-text: true;
+  -fx-font-weight: bolder;
+}
+
+.buttons:hover, .buttons:active, .buttons:focus {
+  -fx-cursor: hand;
+  -fx-background-color: #FFF;
+  -fx-border-color: #FFF;
+  -fx-text-fill: #1F3B4D;
+  -fx-underline: false;  
+}
+
+.buttonClicked {
+  -fx-cursor: hand;
+  -fx-background-color: #FFF;
+  -fx-border-color: #FFF;
+  -fx-text-fill: #1F3B4D;
+  -fx-underline: false;  
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-size: 12px;
+  -fx-wrap-text: true;
+  -fx-font-weight: bolder;
+}
+
+.buttonClicked:hover, .buttonClicked:active, .buttonClicked:focus {
+ -fx-background-color: #1F3B4D;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-border-radius: 0;
+  -fx-border-width: 2px;
+  -fx-color: white;
+  -fx-text-align: center;
+  -fx-text-fill: #FFFFFF;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-size: 12px;
+  -fx-wrap-text: true;
+  -fx-font-weight: bolder;
+}
+
+.minusClick:hover {
+	-fx-cursor: hand;
+}
+
+.xClick:hover {
+	-fx-cursor: hand;
+}
+.back:hover {
+	-fx-cursor: hand;
+}
+.registerReaderLabel {
+	-fx-text-fill: #FFF;
+}
+
+.control-field {
+  -fx-border-color: #008080;
+  -fx-background-color: #1F3B4D;
+  -fx-border-radius: 0;
+  -fx-border-width: 2px;
+  -fx-text-fill: #FFF;
+  -fx-prompt-text-fill: #58656D;
+}
+
+.pControl-field {
+  -fx-border-color: #008080;
+  -fx-background-color: #1F3B4D;
+  -fx-border-radius: 0;
+  -fx-border-width: 2px;
+  -fx-text-fill: #FFF;
+  -fx-prompt-text-fill: #2DFE54;
+}
+
+.buttonAnulo {
+  -fx-background-color: #1F3B4D;
+  -fx-background-radius: 30;
+  -fx-background-insets: 0;
+  -fx-border-radius: 30;
+  -fx-border-color: #fff;
+  -fx-border-width: 2px;
+  -fx-color: white;
+  -fx-text-align: center;
+  -fx-text-fill: #FFFFFF;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-size: 12px;
+  -fx-wrap-text: true;
+  -fx-font-weight: bolder;
+	
+}
+
+.buttonAnulo:hover, .buttonAnulo:active, .buttonAnulo:focus {
+  -fx-cursor: hand;
+  -fx-background-color: #BB3F3F;
+  -fx-border-color: #BB3F3F;
+  -fx-text-fill: #1F3B4D;
+  -fx-underline: false;  
+}
+
+.buttonRuaj {
+  -fx-background-color: #1F3B4D;
+  -fx-background-radius: 30;
+  -fx-background-insets: 0;
+  -fx-border-color: #fff;
+  -fx-border-radius: 30;
+  -fx-border-width: 2px;
+  -fx-color: white;
+  -fx-text-align: center;
+  -fx-text-fill: #FFFFFF;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-size: 12px;
+  -fx-wrap-text: true;
+  -fx-font-weight: bolder;
+	
+}
+
+.buttonRuaj:hover, .buttonRuaj:active, .buttonRuaj:focus {
+  -fx-cursor: hand;
+  -fx-background-color: #33B864;
+    -fx-border-color: #33B864;
+  -fx-text-fill: #1F3B4D;
+  -fx-underline: false;  
+}
+
+.labRegisterSuccess {
+	-fx-text-fill: #2DFE54;
+}

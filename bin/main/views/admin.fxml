@@ -62,7 +62,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="3.0" prefWidth="800.0" spacing="4.0">
          <children>
-            <Text id="welcometext" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome,">
+            <Text id="welcometext" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
                <font>
                   <Font size="15.0" />
                </font>

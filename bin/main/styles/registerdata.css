@@ -1,0 +1,47 @@
+.anchor {
+		-fx-background-color: #1F3B4D;
+}
+.left-anchor {
+		-fx-background-color: #1F3B4D;
+}
+.button-anchor {
+		-fx-background-color: #36013F;
+		-fx-text-fill: #fff;
+}
+.right-anchor {
+		-fx-background-color: #1F3B4D;
+}
+
+.buttons {
+  -fx-background-color: #1F3B4D;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-border-radius: 0;
+  -fx-border-width: 2px;
+  -fx-color: white;
+  -fx-text-align: center;
+  -fx-text-fill: #FFFFFF;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-size: 12px;
+  -fx-wrap-text: true;
+  -fx-font-weight: bolder;
+}
+
+.buttons:hover, .buttons:active, .buttons:focus {
+  -fx-cursor: hand;
+  -fx-background-color: #FFF;
+  -fx-border-color: #FFF;
+  -fx-text-fill: #1F3B4D;
+  -fx-underline: false;  
+}
+.minusClick:hover {
+	-fx-cursor: hand;
+}
+
+.xClick:hover {
+	-fx-cursor: hand;
+}
+.back:hover {
+	-fx-cursor: hand;
+}

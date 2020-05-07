@@ -42,7 +42,7 @@
   -fx-border-radius: 0;
   -fx-border-width: 2px;
   -fx-text-fill: #FFF;
-  -fx-prompt-text-fill: #FFF;
+  -fx-prompt-text-fill: #58656D;
 }
 
 .minusClick:hover {

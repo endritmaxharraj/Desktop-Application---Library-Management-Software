@@ -4,11 +4,13 @@ public class User {
 	private int user_id;
 	private String user_name;
 	private String user_pass;
+	private String user_type;
 
-	public User(int user_id, String user_name, String user_pass) {
+	public User(int user_id, String user_name, String user_pass, String user_type) {
 		this.user_id = user_id;
 		this.user_name = user_name;
 		this.user_pass = user_pass;
+		this.user_type = user_type;
 	}
 
 	public User() {
@@ -36,6 +38,14 @@ public class User {
 
 	public void setUser_pass(String user_pass) {
 		this.user_pass = user_pass;
+	}
+
+	public String getUser_type() {
+		return user_type;
+	}
+
+	public void setUser_type(String user_type) {
+		this.user_type = user_type;
 	}
 
 }
