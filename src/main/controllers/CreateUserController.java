@@ -3,7 +3,6 @@ package main.controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -31,6 +30,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import main.DBConnector;
 import main.User;
 
 public class CreateUserController implements Initializable {
@@ -186,11 +186,10 @@ public class CreateUserController implements Initializable {
 		passwordField.setText("");
 		confirmPasswordField.setText("");
 		comboBox.getSelectionModel().clearSelection();
-		// comboBox.valueProperty().set(null); ose qikjo
 	}
 
 	private User shtoNjeUser(String user_name, String user_pass, String user_type) throws Exception {
-		Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root", "Qapobon123");
+		Connection con = DBConnector.getConnection();
 		String SQL = "INSERT INTO users (user_name,user_pass,user_type) VALUES (?,?,?)";
 
 		PreparedStatement stmt = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
@@ -211,7 +210,7 @@ public class CreateUserController implements Initializable {
 	}
 
 	private void checkNeseEgziston() throws Exception {
-		Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root", "Qapobon123");
+		Connection con = DBConnector.getConnection();
 		String SQL = "SELECT * FROM users WHERE user_name = ? AND user_pass = ? AND user_type = ?";
 		PreparedStatement stmt = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 

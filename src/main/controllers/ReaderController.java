@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -26,6 +25,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import main.DBConnector;
 import main.Lexuesit;
 
 public class ReaderController implements Initializable {
@@ -221,7 +221,7 @@ public class ReaderController implements Initializable {
 
 	private Lexuesit shtonjeLexues(String Emri, String Mbiemri, String Profesioni, String Adresa, String Sektori,
 			int Cmimi, DatePicker Regjistrimi, DatePicker Skadimi) throws Exception {
-		Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root", "Qapobon123");
+		Connection con = DBConnector.getConnection();
 		String SQL = "INSERT INTO Lexuesit (Emri,Mbiemri,Profesioni,Adresa,Sektori,Cmimi,Regjistrimi,Skadimi) VALUES (?,?,?,?,?,?,?,?)";
 		PreparedStatement stmt = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -245,7 +245,7 @@ public class ReaderController implements Initializable {
 	}
 	
 	private void checkNeseEgziston() throws Exception {
-		Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root", "Qapobon123");
+		Connection con = DBConnector.getConnection();
 		String SQL = "SELECT * FROM Lexuesit WHERE Emri = ? AND Mbiemri = ? AND Profesioni = ? AND Adresa = ? AND Sektori = ? AND Cmimi = ?";
 		PreparedStatement stmt = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 

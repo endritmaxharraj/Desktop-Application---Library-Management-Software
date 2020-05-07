@@ -2,7 +2,6 @@ package main.controllers;
 
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
@@ -26,6 +25,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import main.DBConnector;
 
 public class LoginController implements Initializable {
 
@@ -83,8 +83,7 @@ public class LoginController implements Initializable {
 	private void loginButtonClicked(ActionEvent event) throws Exception {
 		FXMLLoader loader = new FXMLLoader();
 		try {
-			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root",
-					"Qapobon123");
+			Connection con = DBConnector.getConnection();
 			String SQL = "SELECT * FROM `users` WHERE `user_name` = ? AND `user_pass` = ?";
 			PreparedStatement stmt = con.prepareStatement(SQL);
 			stmt.setString(1, usernameField.getText());
@@ -144,8 +143,7 @@ public class LoginController implements Initializable {
 		if (event.getCode() == KeyCode.ENTER) {
 			FXMLLoader loader = new FXMLLoader();
 			try {
-				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root",
-						"Qapobon123");
+				Connection con = DBConnector.getConnection();
 				String SQL = "SELECT * FROM `users` WHERE `user_name` = ? AND `user_pass` = ?";
 				PreparedStatement stmt = con.prepareStatement(SQL);
 				stmt.setString(1, usernameField.getText());
@@ -205,8 +203,7 @@ public class LoginController implements Initializable {
 		if (event.getCode() == KeyCode.ENTER) {
 			FXMLLoader loader = new FXMLLoader();
 			try {
-				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/LibraryDatabase", "root",
-						"Qapobon123");
+				Connection con = DBConnector.getConnection();
 				String SQL = "SELECT * FROM `users` WHERE `user_name` = ? AND `user_pass` = ?";
 				PreparedStatement stmt = con.prepareStatement(SQL);
 				stmt.setString(1, usernameField.getText());
