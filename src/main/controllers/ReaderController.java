@@ -105,10 +105,38 @@ public class ReaderController implements Initializable {
 
 	@FXML
 	private void regjistroNjeLiberClicked(ActionEvent event) throws Exception {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("../views/registerBook.fxml"));
+		loader.load();
+		Parent parent = loader.getRoot();
+		Scene scene = new Scene(parent);
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setScene(scene);
+		primaryStage.centerOnScreen();
+		primaryStage.show();
+		scene.setOnKeyPressed(e -> {
+			if (e.getCode() == KeyCode.ESCAPE) {
+				primaryStage.close();
+			}
+		});
 	}
 
 	@FXML
 	private void regjistroNjeLexuesClicked(ActionEvent event) throws Exception {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("../views/registerReader.fxml"));
+		loader.load();
+		Parent parent = loader.getRoot();
+		Scene scene = new Scene(parent);
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setScene(scene);
+		primaryStage.centerOnScreen();
+		primaryStage.show();
+		scene.setOnKeyPressed(e -> {
+			if (e.getCode() == KeyCode.ESCAPE) {
+				primaryStage.close();
+			}
+		});
 	}
 
 	@FXML

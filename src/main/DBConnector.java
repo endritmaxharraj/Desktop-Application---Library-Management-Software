@@ -10,7 +10,7 @@ public class DBConnector {
 		// Ketu i ndrroni keto me passwordin e MYSQL db tjuv
 		String url = "jdbc:mysql://127.0.0.1/LibraryDatabase";
 		String user = "root";
-		String password = "root01";
+		String password = "Qapobon123";
 
 		Connection con = DriverManager.getConnection(url, user, password);
 		return con;

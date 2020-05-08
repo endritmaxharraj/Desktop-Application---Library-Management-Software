@@ -28,3 +28,31 @@ Cmimi INT NOT NULL,
 Regjistrimi Date NOT NULL,
 Skadimi Date NOT NULL,
 Primary Key(Id));
+
+-- Tabela per mbajtesine e Librit
+Create Table MbajtesitLibravae (
+MarrjaLibritID INT NOT NULL auto_increment,
+Emri varchar(25) NOT NULL,
+Mbiemri varchar(25) NOT NULL,
+ISBNKodi INT NOT NULL,
+Emri_Librit varchar(50) NOT NULL,
+Autori_Librit varchar(25) NOT NULL,
+Viti_Botimit int NOT NULL,
+Data_Marrjes DATE NOT NULL,
+Data_Kthimit DATE NOT NULL,
+user_name varchar(25) not null,
+Primary Key(MarrjaLibritID),
+foreign key(user_name) references Users(user_name) on delete cascade,
+foreign key(Emri) references Lexuesit(Emri) on delete cascade,
+foreign key(Mbiemri) references Lexuesit(Mbiemri) on delete cascade
+);
+
+-- Tabela per Regjistrimin e librave
+Create Table RegjistrimiLibrave (
+RegjistrimiID int auto_increment not null,
+Emri_Librit varchar(50) NOT NULL,
+Autori_Librit varchar(25) NOT NULL,
+Viti_Botimit int not null,
+ISBNKodi LONG NOT NULL,
+Sasia int null,
+Primary Key(RegjistrimiID));
