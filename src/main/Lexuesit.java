@@ -3,9 +3,7 @@ package main;
 import javafx.scene.control.DatePicker;
 
 public class Lexuesit {
-	private int Id;
-	private String Emri;
-	private String Mbiemri;
+	private String EmriMbiemri;
 	private String Profesioni;
 	private String Adresa;
 	private String Sektori;
@@ -13,11 +11,10 @@ public class Lexuesit {
 	private DatePicker Regjistrimi;
 	private DatePicker Skadimi;
 
-	public Lexuesit(int Id, String Emri, String Mbiemri, String Profesioni, String Adresa, String Sektori, int Cmimi,
+	public Lexuesit(String EmriMbiemri, String Profesioni, String Adresa, String Sektori,
+			int Cmimi,
 			DatePicker Regjistrimi, DatePicker Skadimi) {
-		this.Id = Id;
-		this.Emri = Emri;
-		this.Mbiemri = Mbiemri;
+		this.EmriMbiemri = EmriMbiemri;
 		this.Profesioni = Profesioni;
 		this.Adresa = Adresa;
 		this.Sektori = Sektori;
@@ -30,28 +27,12 @@ public class Lexuesit {
 
 	}
 
-	public int getId() {
-		return Id;
+	public String getEmriMbiemri() {
+		return EmriMbiemri;
 	}
 
-	public void setId(int id) {
-		Id = id;
-	}
-
-	public String getEmri() {
-		return Emri;
-	}
-
-	public void setEmri(String emri) {
-		Emri = emri;
-	}
-
-	public String getMbiemri() {
-		return Mbiemri;
-	}
-
-	public void setMbiemri(String mbiemri) {
-		Mbiemri = mbiemri;
+	public void setEmriMbiemri(String emriMbiemri) {
+		EmriMbiemri = emriMbiemri;
 	}
 
 	public String getProfesioni() {

@@ -36,6 +36,19 @@
   -fx-underline: false;  
 }
 
+.registerBookLabel {
+	-fx-text-fill: #FFF;
+}
+
+.control-field {
+  -fx-border-color: #008080;
+  -fx-background-color: #1F3B4D;
+  -fx-border-radius: 0;
+  -fx-border-width: 2px;
+  -fx-text-fill: #FFF;
+  -fx-prompt-text-fill: #58656D;
+}
+
 .buttonClicked {
   -fx-cursor: hand;
   -fx-background-color: #FFF;
@@ -75,29 +88,8 @@
 .back:hover {
 	-fx-cursor: hand;
 }
-.registerReaderLabel {
-	-fx-text-fill: #FFF;
-}
 
-.control-field {
-  -fx-border-color: #008080;
-  -fx-background-color: #1F3B4D;
-  -fx-border-radius: 0;
-  -fx-border-width: 2px;
-  -fx-text-fill: #FFF;
-  -fx-prompt-text-fill: #58656D;
-}
-
-.pControl-field {
-  -fx-border-color: #008080;
-  -fx-background-color: #1F3B4D;
-  -fx-border-radius: 0;
-  -fx-border-width: 2px;
-  -fx-text-fill: #FFF;
-  -fx-prompt-text-fill: #2DFE54;
-}
-
-.buttonAnulo {
+.anuloButton {
   -fx-background-color: #1F3B4D;
   -fx-background-radius: 0;
   -fx-background-insets: 0;
@@ -115,7 +107,7 @@
 	
 }
 
-.buttonAnulo:hover, .buttonAnulo:active, .buttonAnulo:focus {
+.anuloButton:hover, .anuloButton:active, .anuloButton:focus {
   -fx-cursor: hand;
   -fx-background-color: #BB3F3F;
   -fx-border-color: #BB3F3F;
@@ -123,7 +115,7 @@
   -fx-underline: false;  
 }
 
-.buttonRuaj {
+.regjistroButton {
   -fx-background-color: #1F3B4D;
   -fx-background-radius: 0;
   -fx-background-insets: 0;
@@ -141,14 +133,10 @@
 	
 }
 
-.buttonRuaj:hover, .buttonRuaj:active, .buttonRuaj:focus {
+.regjistroButton:hover, .regjistroButton:active, .regjistroButton:focus {
   -fx-cursor: hand;
   -fx-background-color: #33B864;
-    -fx-border-color: #33B864;
+  -fx-border-color: #33B864;
   -fx-text-fill: #1F3B4D;
   -fx-underline: false;  
-}
-
-.labRegisterSuccess {
-	-fx-text-fill: #2DFE54;
 }

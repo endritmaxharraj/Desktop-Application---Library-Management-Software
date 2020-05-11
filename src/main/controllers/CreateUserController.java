@@ -202,8 +202,7 @@ public class CreateUserController implements Initializable {
 
 		ResultSet rs = stmt.getGeneratedKeys();
 		if (rs.next()) {
-			int user_id = rs.getInt(1);
-			return new User(user_id, user_name, user_pass, user_type);
+			return new User(user_name, user_pass, user_type);
 		}
 
 		return null;

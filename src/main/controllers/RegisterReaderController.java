@@ -28,7 +28,7 @@ import javafx.stage.Stage;
 import main.DBConnector;
 import main.Lexuesit;
 
-public class ReaderController implements Initializable {
+public class RegisterReaderController implements Initializable {
 
 	double x, y;
 	
@@ -72,10 +72,7 @@ public class ReaderController implements Initializable {
 	ImageView close;
 
 	@FXML
-	TextField emriField;
-
-	@FXML
-	TextField mbiemriField;
+	TextField emriMbiemriField;
 
 	@FXML
 	TextField profesioniField;
@@ -141,6 +138,20 @@ public class ReaderController implements Initializable {
 
 	@FXML
 	private void regjistroMbajtesineLibritClicked(ActionEvent event) throws Exception {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("../views/registerBookHolders.fxml"));
+		loader.load();
+		Parent parent = loader.getRoot();
+		Scene scene = new Scene(parent);
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setScene(scene);
+		primaryStage.centerOnScreen();
+		primaryStage.show();
+		scene.setOnKeyPressed(e -> {
+			if (e.getCode() == KeyCode.ESCAPE) {
+				primaryStage.close();
+			}
+		});
 	}
 
 	@FXML
@@ -150,21 +161,21 @@ public class ReaderController implements Initializable {
 	@FXML
 	private void regjistroButtonClicked(ActionEvent event) throws Exception {
 
-			if (emriField.getText().isEmpty() || mbiemriField.getText().isEmpty() || profesioniField.getText().isEmpty()
+		if (emriMbiemriField.getText().isEmpty() || profesioniField.getText()
+				.isEmpty()
 					|| adresaField.getText().isEmpty() || sektoriField.getText().isEmpty()
 					|| cmimiField.getText().isEmpty() || Date.valueOf(dateField.getValue()) == null
 					|| Date.valueOf(dateSkadimiField.getValue()) == null) {
 				labSuccess.setText("Duhet ti plotesoni te gjitha te dhenat!");
 				labSuccess.setStyle("-fx-text-fill: #FF073A;");
-			} else if (emriField.getText().length() < 3 || mbiemriField
-					.getText()
-					.length() < 3
+			} else if (emriMbiemriField.getText().length() < 3
 					|| profesioniField.getText().length() < 3 || adresaField.getText().length() < 3
 					|| sektoriField.getText().length() < 3) {
 				labSuccess.setText("Ju lutem plotesoni te dhenat me te dhena te verteta!");
 				labSuccess.setStyle("-fx-text-fill: #FF073A;");
 			}
-			else if (emriField.getText().matches("[0-9]+") || mbiemriField.getText().matches("[0-9]+")
+			else if (emriMbiemriField.getText().matches(
+					"[0-9]+")
 					|| profesioniField.getText().matches("[0-9]+") || adresaField.getText().matches("[0-9]+")
 					|| sektoriField.getText().matches("[0-9]+")) {
 				labSuccess.setText("Nuk lejohen numra !");
@@ -176,8 +187,7 @@ public class ReaderController implements Initializable {
 }
 
 	private void emptyField() {
-		emriField.setText("");
-		mbiemriField.setText("");
+		emriMbiemriField.setText("");
 		profesioniField.setText("");
 		adresaField.setText("");
 		sektoriField.setText("");
@@ -247,54 +257,51 @@ public class ReaderController implements Initializable {
 		});
 	}
 
-	private Lexuesit shtonjeLexues(String Emri, String Mbiemri, String Profesioni, String Adresa, String Sektori,
-			int Cmimi, DatePicker Regjistrimi, DatePicker Skadimi) throws Exception {
+	private Lexuesit shtonjeLexues(String EmriMbiemri, String Profesioni, String Adresa, String Sektori, int Cmimi,
+			DatePicker Regjistrimi, DatePicker Skadimi) throws Exception {
 		Connection con = DBConnector.getConnection();
-		String SQL = "INSERT INTO Lexuesit (Emri,Mbiemri,Profesioni,Adresa,Sektori,Cmimi,Regjistrimi,Skadimi) VALUES (?,?,?,?,?,?,?,?)";
+		String SQL = "INSERT INTO Lexuesit (EmriMbiemri,Profesioni,Adresa,Sektori,Cmimi,Regjistrimi,Skadimi) VALUES (?,?,?,?,?,?,?)";
 		PreparedStatement stmt = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
-		stmt.setString(1, emriField.getText());
-		stmt.setString(2, mbiemriField.getText());
-		stmt.setString(3, profesioniField.getText());
-		stmt.setString(4, adresaField.getText());
-		stmt.setString(5, sektoriField.getText());
-		stmt.setInt(6, Integer.parseInt(cmimiField.getText()));
-		stmt.setDate(7, Date.valueOf(dateField.getValue()));
-		stmt.setDate(8, Date.valueOf(dateSkadimiField.getValue()));
+		stmt.setString(1, emriMbiemriField.getText());
+		stmt.setString(2, profesioniField.getText());
+		stmt.setString(3, adresaField.getText());
+		stmt.setString(4, sektoriField.getText());
+		stmt.setInt(5, Integer.parseInt(cmimiField.getText()));
+		stmt.setDate(6, Date.valueOf(dateField.getValue()));
+		stmt.setDate(7, Date.valueOf(dateSkadimiField.getValue()));
 
 		stmt.executeUpdate();
 
 		ResultSet tableKeys = stmt.getGeneratedKeys();
 		if (tableKeys.next()) {
-			int Id = tableKeys.getInt(1);
-			return new Lexuesit(Id, Emri, Mbiemri, Profesioni, Adresa, Sektori, Cmimi, Regjistrimi, Skadimi);
+			return new Lexuesit(EmriMbiemri, Profesioni, Adresa, Sektori, Cmimi, Regjistrimi, Skadimi);
 		}
 		return null;
 	}
 	
 	private void checkNeseEgziston() throws Exception {
 		Connection con = DBConnector.getConnection();
-		String SQL = "SELECT * FROM Lexuesit WHERE Emri = ? AND Mbiemri = ? AND Profesioni = ? AND Adresa = ? AND Sektori = ? AND Cmimi = ?";
+		String SQL = "SELECT * FROM Lexuesit WHERE EmriMbiemri = ? AND Profesioni = ? AND Adresa = ? AND Sektori = ? AND Cmimi = ? AND Regjistrimi = ? AND Skadimi = ?";
 		PreparedStatement stmt = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
-		stmt.setString(1, emriField.getText());
-		stmt.setString(2, mbiemriField.getText());
-		stmt.setString(3, profesioniField.getText());
-		stmt.setString(4, adresaField.getText());
-		stmt.setString(5, sektoriField.getText());
-		stmt.setInt(6, Integer.parseInt(cmimiField.getText()));
+		stmt.setString(1, emriMbiemriField.getText());
+		stmt.setString(2, profesioniField.getText());
+		stmt.setString(3, adresaField.getText());
+		stmt.setString(4, sektoriField.getText());
+		stmt.setInt(5, Integer.parseInt(cmimiField.getText()));
+		stmt.setDate(6, Date.valueOf(dateField.getValue()));
+		stmt.setDate(7, Date.valueOf(dateSkadimiField.getValue()));
 
 		ResultSet rs = stmt.executeQuery();
 
 		if (rs.isBeforeFirst()) {
 			labSuccess.setText("Lexuesi me kete te dhena egziston ne database !");
 			labSuccess.setStyle("-fx-text-fill: #FF073A;");
-			emptyField();
 		} else {
 			Lexuesit lexuesit = new Lexuesit();
-			lexuesit = shtonjeLexues(lexuesit.getEmri(), lexuesit.getMbiemri(), lexuesit.getProfesioni(),
-					lexuesit.getAdresa(), lexuesit.getSektori(), lexuesit.getCmimi(), lexuesit.getRegjistrimi(),
-					lexuesit.getSkadimi());
+			lexuesit = shtonjeLexues(lexuesit.getEmriMbiemri(), lexuesit.getProfesioni(), lexuesit.getAdresa(),
+					lexuesit.getSektori(), lexuesit.getCmimi(), lexuesit.getRegjistrimi(), lexuesit.getSkadimi());
 			labSuccess.setText("Lexuesi eshte regjistruar me sukses!");
 			labSuccess.setStyle("-fx-text-fill: #2DFE54;");
 			emptyField();

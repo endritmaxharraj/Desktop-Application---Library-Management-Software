@@ -1,9 +1,7 @@
 package main;
 
 public class Librat {
-	private int RegjistrimiID;
-	private String EmriLibrit;
-	private String AutoriLibrit;
+	private String EmriLibritAutori;
 	private int VitiBotimit;
 	private long ISBNKodi;
 	private int Sasia;
@@ -12,39 +10,19 @@ public class Librat {
 
 	}
 
-	public Librat(int RegjistrimiID, String EmriLibrit, String AutoriLibrit, int VitiBotimit,
-			long ISBNKodi,
-			int Sasia) {
-		this.RegjistrimiID = RegjistrimiID;
-		this.EmriLibrit = EmriLibrit;
-		this.AutoriLibrit = AutoriLibrit;
+	public Librat(String EmriLibritAutori, int VitiBotimit, long ISBNKodi, int Sasia) {
+		this.EmriLibritAutori = EmriLibritAutori;
 		this.VitiBotimit = VitiBotimit;
 		this.ISBNKodi = ISBNKodi;
 		this.Sasia = Sasia;
 	}
 
-	public int getRegjistrimiID() {
-		return RegjistrimiID;
+	public String getEmriLibritAutori() {
+		return EmriLibritAutori;
 	}
 
-	public void setRegjistrimiID(int regjistrimiID) {
-		RegjistrimiID = regjistrimiID;
-	}
-
-	public String getEmriLibrit() {
-		return EmriLibrit;
-	}
-
-	public void setEmriLibrit(String emriLibrit) {
-		EmriLibrit = emriLibrit;
-	}
-
-	public String getAutoriLibrit() {
-		return AutoriLibrit;
-	}
-
-	public void setAutoriLibrit(String autoriLibrit) {
-		AutoriLibrit = autoriLibrit;
+	public void setEmriLibritAutori(String emriLibritAutori) {
+		EmriLibritAutori = emriLibritAutori;
 	}
 
 	public int getVitiBotimit() {

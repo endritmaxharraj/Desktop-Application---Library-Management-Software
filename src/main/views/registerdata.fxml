@@ -24,7 +24,7 @@
          <children>
             <Button fx:id="regjistroNjeLiber" layoutX="-42.0" layoutY="131.0" mnemonicParsing="false" onAction="#regjistroNjeLiberClicked" prefHeight="54.0" prefWidth="208.0" styleClass="buttons" text="REGJISTRO NJE LIBER" textAlignment="CENTER" />
             <Button fx:id="regjistroNjeLexues" layoutX="-42.0" layoutY="192.0" mnemonicParsing="false" onAction="#regjistroNjeLexuesClicked" prefHeight="54.0" prefWidth="208.0" styleClass="buttons" text="REGJISTRO NJE LEXUES" />
-            <Button fx:id="regjistroMbajtesineLibrit" layoutX="-42.0" layoutY="253.0" mnemonicParsing="false" onAction="#regjistroVendinClicked" prefHeight="54.0" prefWidth="208.0" styleClass="buttons" text="REGJISTRO MBAJTESINE E LIBRIT" />
+            <Button fx:id="regjistroMbajtesineLibrit" layoutX="-42.0" layoutY="253.0" mnemonicParsing="false" onAction="#regjistroMbajtesineLibritClicked" prefHeight="54.0" prefWidth="208.0" styleClass="buttons" text="REGJISTRO MBAJTESINE E LIBRIT" />
             <Button fx:id="regjistroVendin" layoutX="-42.0" layoutY="314.0" mnemonicParsing="false" onAction="#regjistroVendinClicked" prefHeight="54.0" prefWidth="208.0" styleClass="buttons" text="REGJISTRO VENDIN" />
          </children>
          <effect>
