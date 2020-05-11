@@ -57,3 +57,22 @@ foreign key(user_name) references users(user_name) on delete cascade,
 foreign key(EmriMbiemri) references Lexuesit(EmriMbiemri) on delete cascade,
 foreign key(Emri_Librit_Autori) references RegjistrimiLibrave(Emri_Librit_Autori) on delete cascade
 );
+	    
+	    
+--tabela per vendet se ku do te ulen studentet
+--permban vendId identiikues
+--emrin e ulses dhe emrin e salles qe i takon kjo ulse
+create table Vendet(
+ VendiID int primary key,
+ EmriUlses varchar(10),
+ EmriISalles varchar(10),
+
+ )
+ --todolist tabela 
+ --permban nje id identifikuse daten dhe shenimin e to do shkrimit qe eshte bere.
+ create table todoList(
+ todoListid int primary key,
+ DataeListes date,
+ TekstiRaport varchar(30),
+)
+
