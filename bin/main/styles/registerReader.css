@@ -152,3 +152,9 @@
 .labRegisterSuccess {
 	-fx-text-fill: #2DFE54;
 }
+
+.radiobutton {
+	-fx-blend-mode: lighten;
+	-fx-cursor: hand;
+	-fx-text-fill: white;
+}

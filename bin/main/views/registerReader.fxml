@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -47,18 +48,18 @@
                   <TextField fx:id="emriMbiemriField" promptText="Emri dhe Mbiemri juaj" styleClass="control-field" GridPane.columnIndex="1" GridPane.columnSpan="2" />
                   <TextField fx:id="profesioniField" promptText="Profesioni" styleClass="control-field" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                   <TextField fx:id="adresaField" promptText="Adresa" styleClass="control-field" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                  <TextField fx:id="sektoriField" promptText="Sektori i leximit" styleClass="control-field" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-                  <DatePicker fx:id="dateField" prefHeight="26.0" prefWidth="202.0" promptText="dd/mm/yyyy" styleClass="control-field" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                  <DatePicker fx:id="dateField" prefHeight="30.0" prefWidth="225.0" promptText="dd/mm/yyyy" styleClass="control-field" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
                   <Button fx:id="anuloButton" mnemonicParsing="false" onAction="#anuloButtonClicked" prefHeight="46.0" prefWidth="105.0" styleClass="buttonAnulo" text="Anulo" GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.rowSpan="2" />
                   <Button fx:id="regjistroButton" mnemonicParsing="false" onAction="#regjistroButtonClicked" prefHeight="46.0" prefWidth="105.0" styleClass="buttonRuaj" text="Regjistro" GridPane.columnIndex="2" GridPane.rowIndex="7" GridPane.rowSpan="2" />
                   <TextField fx:id="cmimiField" alignment="CENTER_RIGHT" editable="false" prefHeight="18.0" prefWidth="58.0" styleClass="pControl-field" text="10" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Label styleClass="registerReaderLabel" text="Data e skadimit:" GridPane.rowIndex="6" />
-                  <DatePicker fx:id="dateSkadimiField" prefHeight="26.0" prefWidth="204.0" promptText="dd/mm/yyyy" styleClass="control-field" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                  <DatePicker fx:id="dateSkadimiField" prefHeight="30.0" prefWidth="219.0" promptText="dd/mm/yyyy" styleClass="control-field" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
                   <Text fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="€" wrappingWidth="29.444231033325195" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <font>
                         <Font size="23.0" />
                      </font>
                   </Text>
+                  <ComboBox fx:id="comboBox" prefHeight="28.0" prefWidth="239.0" promptText="Sektori i Leximit" styleClass="radiobutton" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
                </children>
             </GridPane>
             <Label fx:id="labSuccess" alignment="CENTER" layoutX="22.0" prefHeight="30.0" prefWidth="598.0" styleClass="labRegisterSuccess" textAlignment="CENTER" />

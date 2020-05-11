@@ -28,8 +28,8 @@ Primary Key(EmriMbiemri));
 
 -- INSERT ne Lexuesit
 INSERT into Lexuesit(EmriMbiemri, Profesioni, Adresa, Sektori, Cmimi, Regjistrimi, Skadimi)
-Values('Gentrit Ibishi', 'Student - FIEK','Deshmoret e Kombit', 'Kati 3', 10, '2020-05-11', '2021-05-12'),
-	  ('Mirsad Dibrani', 'Student - FIEK','Fushe Kosove', 'Kati 3', 10, '2020-01-01', '2021-01-02');
+Values('Gentrit Ibishi', 'Student - FIEK','Deshmoret e Kombit', 'Kati i pare', 10, '2020-05-11', '2021-05-12'),
+	  ('Mirsad Dibrani', 'Student - FIEK','Fushe Kosove', 'Kati i pare', 10, '2020-01-01', '2021-01-02');
 
 
 -- Tabela per Regjistrimin e librave

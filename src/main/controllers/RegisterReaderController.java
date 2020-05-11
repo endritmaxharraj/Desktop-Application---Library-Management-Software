@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -81,9 +84,6 @@ public class RegisterReaderController implements Initializable {
 	TextField adresaField;
 
 	@FXML
-	TextField sektoriField;
-
-	@FXML
 	TextField cmimiField;
 
 	@FXML
@@ -95,9 +95,14 @@ public class RegisterReaderController implements Initializable {
 	@FXML
 	Label labSuccess;
 
+	@FXML
+	ComboBox<String> comboBox;
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
+		ObservableList<String> sektoriList = FXCollections.observableArrayList("Kati i pare", "Kati i dyte",
+				"Kati i trete");
+		comboBox.getItems().addAll(sektoriList);
 	}
 
 	@FXML
@@ -161,23 +166,24 @@ public class RegisterReaderController implements Initializable {
 	@FXML
 	private void regjistroButtonClicked(ActionEvent event) throws Exception {
 
+		boolean iscomboBoxEmpty = (comboBox.getValue() == null);
+
 		if (emriMbiemriField.getText().isEmpty() || profesioniField.getText()
 				.isEmpty()
-					|| adresaField.getText().isEmpty() || sektoriField.getText().isEmpty()
+				|| adresaField.getText().isEmpty()
+				|| iscomboBoxEmpty
 					|| cmimiField.getText().isEmpty() || Date.valueOf(dateField.getValue()) == null
 					|| Date.valueOf(dateSkadimiField.getValue()) == null) {
 				labSuccess.setText("Duhet ti plotesoni te gjitha te dhenat!");
 				labSuccess.setStyle("-fx-text-fill: #FF073A;");
 			} else if (emriMbiemriField.getText().length() < 3
-					|| profesioniField.getText().length() < 3 || adresaField.getText().length() < 3
-					|| sektoriField.getText().length() < 3) {
+					|| profesioniField.getText().length() < 3 || adresaField.getText().length() < 3) {
 				labSuccess.setText("Ju lutem plotesoni te dhenat me te dhena te verteta!");
 				labSuccess.setStyle("-fx-text-fill: #FF073A;");
 			}
 			else if (emriMbiemriField.getText().matches(
 					"[0-9]+")
-					|| profesioniField.getText().matches("[0-9]+") || adresaField.getText().matches("[0-9]+")
-					|| sektoriField.getText().matches("[0-9]+")) {
+					|| profesioniField.getText().matches("[0-9]+") || adresaField.getText().matches("[0-9]+")) {
 				labSuccess.setText("Nuk lejohen numra !");
 				labSuccess.setStyle("-fx-text-fill: #FF073A;");
 			}
@@ -190,7 +196,7 @@ public class RegisterReaderController implements Initializable {
 		emriMbiemriField.setText("");
 		profesioniField.setText("");
 		adresaField.setText("");
-		sektoriField.setText("");
+		comboBox.getSelectionModel().clearSelection();
 		dateField.setValue(null);
 		dateSkadimiField.setValue(null);
 	}
@@ -266,7 +272,7 @@ public class RegisterReaderController implements Initializable {
 		stmt.setString(1, emriMbiemriField.getText());
 		stmt.setString(2, profesioniField.getText());
 		stmt.setString(3, adresaField.getText());
-		stmt.setString(4, sektoriField.getText());
+		stmt.setString(4, comboBox.getSelectionModel().getSelectedItem().toString());
 		stmt.setInt(5, Integer.parseInt(cmimiField.getText()));
 		stmt.setDate(6, Date.valueOf(dateField.getValue()));
 		stmt.setDate(7, Date.valueOf(dateSkadimiField.getValue()));
@@ -288,7 +294,7 @@ public class RegisterReaderController implements Initializable {
 		stmt.setString(1, emriMbiemriField.getText());
 		stmt.setString(2, profesioniField.getText());
 		stmt.setString(3, adresaField.getText());
-		stmt.setString(4, sektoriField.getText());
+		stmt.setString(4, comboBox.getSelectionModel().getSelectedItem().toString());
 		stmt.setInt(5, Integer.parseInt(cmimiField.getText()));
 		stmt.setDate(6, Date.valueOf(dateField.getValue()));
 		stmt.setDate(7, Date.valueOf(dateSkadimiField.getValue()));
