@@ -1,8 +1,8 @@
-
+package main;
 
 public class Vendet{
 
-	private int vendiId
+	private int vendiId;
 	private String emriUlses;
 	private String emriSalles;
 	
@@ -35,10 +35,6 @@ public class Vendet{
 		this.emriSalles = emriSalles;
 	}
 	
-	@Override
-		public String toString(){
-			vendiId + " : " + emriUlses + " : " +  emriSalles;
-		}
 }
 
 

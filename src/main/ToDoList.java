@@ -1,5 +1,6 @@
+package main;
 
-
+import javafx.scene.control.DatePicker;
 
 public class ToDoList{
 	
@@ -14,13 +15,13 @@ public class ToDoList{
 		}
 		
 		public int getToDoList(){
-			return getToDoList;
+			return todoList;
 		}
 		public DatePicker getDatatoDoList(){
 			return datatodoList;
 		}
 		public String getTeksti(){
-			return getTeksti;
+			return teksti;
 		}
 		
 		public void setTodoList(int todoList){
