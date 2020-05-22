@@ -7,7 +7,8 @@ Create Table Users(
 user_name varchar(25) not null,
 user_pass varchar(45) not null,
 user_type varchar(10) not null,
-Primary Key(user_name));
+Primary Key(user_name))
+ENGINE = InnoDB;
 
 -- INSERT ne Users
 INSERT into Users(user_name, user_pass, user_type)
@@ -24,7 +25,8 @@ Sektori varchar(40) NOT NULL,
 Cmimi INT NOT NULL,
 Regjistrimi Date NOT NULL,
 Skadimi Date NOT NULL,
-Primary Key(EmriMbiemri));
+Primary Key(EmriMbiemri))
+ENGINE = InnoDB;
 
 -- INSERT ne Lexuesit
 INSERT into Lexuesit(EmriMbiemri, Profesioni, Adresa, Sektori, Cmimi, Regjistrimi, Skadimi)
@@ -38,7 +40,8 @@ Emri_Librit_Autori varchar(50) NOT NULL,
 Viti_Botimit int not null,
 ISBNKodi LONG NOT NULL,
 Sasia int null,
-Primary Key(Emri_Librit_Autori));
+Primary Key(Emri_Librit_Autori))
+ENGINE = InnoDB;
 
 -- INSERT ne RegjistrimiLibrave
 INSERT into RegjistrimiLibrave(Emri_Librit_Autori, Viti_Botimit, ISBNKodi, Sasia)
@@ -56,23 +59,17 @@ user_name varchar(25) not null,
 foreign key(user_name) references users(user_name) on delete cascade,
 foreign key(EmriMbiemri) references Lexuesit(EmriMbiemri) on delete cascade,
 foreign key(Emri_Librit_Autori) references RegjistrimiLibrave(Emri_Librit_Autori) on delete cascade
-);
-	    
-	    
---tabela per vendet se ku do te ulen studentet
---permban vendId identiikues
---emrin e ulses dhe emrin e salles qe i takon kjo ulse
-create table Vendet(
- VendiID int primary key,
- EmriUlses varchar(10),
- EmriISalles varchar(10),
-
- )
- --todolist tabela 
- --permban nje id identifikuse daten dhe shenimin e to do shkrimit qe eshte bere.
- create table todoList(
- todoListid int primary key,
- DataeListes date,
- TekstiRaport varchar(30),
 )
-
+ENGINE = InnoDB;
+	    
+	    
+-- tabela per vendet se ku do te ulen studentet
+-- nrVendi identiikues prej 1 deri 100 kati i pare , 101 - 200 kati i dyte, 201- 300 kati i trete
+create table Vendet (
+ nrVendi int primary key,
+ EmriMbiemri varchar(50),
+ Sektori varchar(40) NOT NULL,
+ DataKoha datetime,
+ foreign key(EmriMbiemri) references Lexuesit(EmriMbiemri) on delete cascade
+)
+ENGINE = InnoDB;
