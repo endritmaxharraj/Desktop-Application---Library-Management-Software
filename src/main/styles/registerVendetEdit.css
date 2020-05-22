@@ -112,6 +112,14 @@
 	
 }
 
+.control-field {
+  -fx-border-color: #008080;
+  -fx-background-color: #1F3B4D;
+  -fx-border-radius: 0;
+  -fx-border-width: 2px;
+  -fx-text-fill: #FFF;
+  -fx-prompt-text-fill: #58656D;
+}
 
 
 .buttons1:hover, .buttons1:active, .buttons1:focus {
@@ -170,42 +178,12 @@
 	-fx-cursor: hand;
 }
 
+.radiobutton {
+	-fx-blend-mode: lighten;
+	-fx-cursor: hand;
+	-fx-text-fill: white;
+}
 
 .labels {
 	-fx-text-fill: #FFF;
-}
-
-.labels:hover {
-	-fx-text-fill: #FD4659;
-	-fx-cursor: hand;
-}
-
-.labelsTop {
-	-fx-text-fill: #FFF;
-	-fx-font-size: 15px;
-}
-
-.buttonsKatet {
-  -fx-background-color: #1F3B4D;
-  -fx-background-radius: 0;
-  -fx-background-insets: 0;
-  -fx-border-radius: 0;
-  -fx-border-color: #FFF;
-  -fx-border-width: 2px;
-  -fx-color: white;
-  -fx-text-align: center;
-  -fx-text-fill: #FFFFFF;
-  -fx-text-decoration: none;
-  -fx-display: inline-block;
-  -fx-font-size: 12px;
-  -fx-wrap-text: true;
-  -fx-font-weight: bolder;
-}
-
-.buttonsKatet:hover, .buttonsKatet:active, .buttonsKatet:focus {
-  -fx-cursor: hand;
-  -fx-background-color: #FFF;
-  -fx-border-color: #FFF;
-  -fx-text-fill: #1F3B4D;
-  -fx-underline: false;  
 }

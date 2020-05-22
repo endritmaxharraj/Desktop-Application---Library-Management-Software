@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" onMouseDragged="#draged" onMousePressed="#pressed" prefHeight="550.0" prefWidth="851.0" styleClass="anchor" stylesheets="@../styles/registerVendet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.RegisterVendetKatiDyteController">
+   <children>
+      <AnchorPane fx:id="rightanchorPane" layoutX="208.0" layoutY="136.0" prefHeight="412.0" prefWidth="642.0" styleClass="right-anchor">
+         <children>
+            <HBox alignment="CENTER" prefHeight="38.0" prefWidth="642.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="101" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="102" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="103" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="104" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="105" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="106" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="107" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="108" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="109" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="110" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutY="38.0" prefHeight="38.0" prefWidth="642.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="111" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="112" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="113" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="114" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="115" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="116" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="117" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="118" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="119" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="120" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutY="76.0" prefHeight="38.0" prefWidth="642.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="121" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="122" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="123" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="124" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="125" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="126" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="127" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="128" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="129" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="130" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutY="114.0" prefHeight="38.0" prefWidth="642.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="131" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="132" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="133" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="134" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="135" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="136" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="137" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="138" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="139" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="140" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutY="152.0" prefHeight="38.0" prefWidth="642.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="141" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="142" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="143" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="144" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="145" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="146" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="147" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="148" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="149" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="150" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutY="190.0" prefHeight="38.0" prefWidth="642.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="151" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="152" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="153" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="154" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="155" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="156" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="157" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="158" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="159" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="160" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutY="228.0" prefHeight="38.0" prefWidth="642.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="161" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="162" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="163" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="164" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="165" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="166" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="167" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="168" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="169" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="170" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutY="266.0" prefHeight="38.0" prefWidth="642.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="171" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="172" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="173" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="174" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="175" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="176" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="177" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="178" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="179" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="180" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutY="304.0" prefHeight="38.0" prefWidth="642.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="181" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="182" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="183" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="184" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="185" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="186" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="187" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="188" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="189" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="190" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutY="342.0" prefHeight="38.0" prefWidth="642.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="191" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="192" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="193" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="194" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="195" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="196" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="197" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="198" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="199" />
+                  <Button mnemonicParsing="false" onAction="#button1Clicked" styleClass="buttons1" text="200" />
+               </children>
+            </HBox>
+         </children></AnchorPane>
+      <AnchorPane fx:id="leftanchorPane" prefHeight="500.0" prefWidth="39.0" styleClass="left-anchor" />
+      <AnchorPane fx:id="buttonsanchorPane" layoutX="42.0" layoutY="-1.0" prefHeight="550.0" prefWidth="166.0" styleClass="button-anchor">
+         <children>
+            <Button fx:id="regjistroNjeLiber" layoutX="-42.0" layoutY="131.0" mnemonicParsing="false" onAction="#regjistroNjeLiberClicked" prefHeight="54.0" prefWidth="208.0" styleClass="buttons" text="REGJISTRO NJE LIBER" textAlignment="CENTER" />
+            <Button fx:id="regjistroNjeLexues" layoutX="-42.0" layoutY="192.0" mnemonicParsing="false" onAction="#regjistroNjeLexuesClicked" prefHeight="54.0" prefWidth="208.0" styleClass="buttons" text="REGJISTRO NJE LEXUES" />
+            <Button fx:id="regjistroMbajtesineLibrit" layoutX="-42.0" layoutY="253.0" mnemonicParsing="false" onAction="#regjistroMbajtesineLibritClicked" prefHeight="54.0" prefWidth="208.0" styleClass="buttons" text="REGJISTRO MBAJTESINE E LIBRIT" />
+            <Button fx:id="regjistroVendin" layoutX="-42.0" layoutY="314.0" mnemonicParsing="false" onAction="#regjistroVendinClicked" prefHeight="54.0" prefWidth="208.0" styleClass="buttonClicked" text="REGJISTRO VENDIN" />
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
+      <HBox prefHeight="86.0" prefWidth="850.0">
+         <children>
+            <ImageView fx:id="backSign" fitHeight="77.0" fitWidth="64.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true" styleClass="back">
+               <image>
+                  <Image url="@../../images/backSign.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="min" fitHeight="30.0" fitWidth="54.0" onMouseClicked="#min" pickOnBounds="true" preserveRatio="true" styleClass="minusClick">
+               <HBox.margin>
+                  <Insets left="625.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../../images/MinimizeWindows.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="close" fitHeight="30.0" fitWidth="54.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true" styleClass="xClick">
+               <image>
+                  <Image url="@../../images/xWindows.png" />
+               </image>
+            </ImageView>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="87.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="237.0" layoutY="81.0" prefHeight="35.0" prefWidth="582.0" styleClass="labelsTop" text="KATI I DYTE" textAlignment="CENTER" />
+   </children>
+</AnchorPane>

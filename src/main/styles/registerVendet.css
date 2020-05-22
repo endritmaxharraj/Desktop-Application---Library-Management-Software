@@ -83,6 +83,8 @@
 	
 }
 
+
+
 .anuloButton:hover, .anuloButton:active, .anuloButton:focus {
   -fx-cursor: hand;
   -fx-background-color: #BB3F3F;
@@ -90,6 +92,37 @@
   -fx-text-fill: #1F3B4D;
   -fx-underline: false;  
 }
+
+
+.buttons1 {
+  -fx-background-color: #1F3B4D;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-border-radius: 0;
+  -fx-border-color: #fff;
+  -fx-border-width: 2px;
+  -fx-color: white;
+  -fx-text-align: center;
+  -fx-text-fill: #FFFFFF;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-size: 12px;
+  -fx-wrap-text: true;
+  -fx-font-weight: bolder;
+	
+}
+
+
+
+.buttons1:hover, .buttons1:active, .buttons1:focus {
+  -fx-cursor: hand;
+  -fx-background-color: #BB3F3F;
+  -fx-border-color: #BB3F3F;
+  -fx-text-fill: #1F3B4D;
+  -fx-underline: false;  
+}
+
+
 
 .regjistroButton {
   -fx-background-color: #1F3B4D;
@@ -126,4 +159,53 @@
 }
 .back:hover {
 	-fx-cursor: hand;
+}
+
+.label1 {
+	-fx-text-fill: #FD4659;
+}
+
+.label1:hover {
+	-fx-text-fill: #FD4659;
+	-fx-cursor: hand;
+}
+
+
+.labels {
+	-fx-text-fill: #FFF;
+}
+
+.labels:hover {
+	-fx-text-fill: #FD4659;
+	-fx-cursor: hand;
+}
+
+.labelsTop {
+	-fx-text-fill: #FFF;
+	-fx-font-size: 15px;
+}
+
+.buttonsKatet {
+  -fx-background-color: #1F3B4D;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-border-radius: 0;
+  -fx-border-color: #FFF;
+  -fx-border-width: 2px;
+  -fx-color: white;
+  -fx-text-align: center;
+  -fx-text-fill: #FFFFFF;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-size: 12px;
+  -fx-wrap-text: true;
+  -fx-font-weight: bolder;
+}
+
+.buttonsKatet:hover, .buttonsKatet:active, .buttonsKatet:focus {
+  -fx-cursor: hand;
+  -fx-background-color: #FFF;
+  -fx-border-color: #FFF;
+  -fx-text-fill: #1F3B4D;
+  -fx-underline: false;  
 }

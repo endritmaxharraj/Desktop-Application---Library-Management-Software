@@ -2,6 +2,8 @@ package main.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -21,8 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class RegisterVendetController implements Initializable {
-
+public class RegisterVendetKatiTreteController implements Initializable {
 	double x, y;
 
 	@FXML
@@ -83,97 +84,13 @@ public class RegisterVendetController implements Initializable {
 	Button regjistroButton;
 
 	@FXML
-	Button katipare;
+	Button button1;
 
 	@FXML
-	Button katidyte;
+	Label labSuccess;
 
 	@FXML
-	Button katitrete;
-	
-	@FXML
-	Label zgjedhKatin;
-
-	@FXML
-	private void katiPareClicked(ActionEvent event) throws Exception {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("../views/registerVendetKatiPare.fxml"));
-		loader.load();
-		Parent parent = loader.getRoot();
-		Scene scene = new Scene(parent);
-		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setScene(scene);
-		primaryStage.centerOnScreen();
-		primaryStage.show();
-		scene.setOnKeyPressed(e -> {
-			if (e.getCode() == KeyCode.ESCAPE) {
-				primaryStage.close();
-			}
-		});
-	}
-
-	@FXML
-	private void katiDyteClicked(ActionEvent event) throws Exception {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("../views/registerVendetKatiDyte.fxml"));
-		loader.load();
-		Parent parent = loader.getRoot();
-		Scene scene = new Scene(parent);
-		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setScene(scene);
-		primaryStage.centerOnScreen();
-		primaryStage.show();
-		scene.setOnKeyPressed(e -> {
-			if (e.getCode() == KeyCode.ESCAPE) {
-				primaryStage.close();
-			}
-		});
-	}
-
-	@FXML
-	private void katiTreteClicked(ActionEvent event) throws Exception {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("../views/registerVendetKatiTrete.fxml"));
-		loader.load();
-		Parent parent = loader.getRoot();
-		Scene scene = new Scene(parent);
-		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setScene(scene);
-		primaryStage.centerOnScreen();
-		primaryStage.show();
-		scene.setOnKeyPressed(e -> {
-			if (e.getCode() == KeyCode.ESCAPE) {
-				primaryStage.close();
-			}
-		});
-	}
-
-	@FXML
-	private void onMouseClickedPage1(MouseEvent event) throws Exception {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("../views/registerVendet.fxml"));
-		loader.load();
-		Parent parent = loader.getRoot();
-		Scene scene = new Scene(parent);
-		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setScene(scene);
-		primaryStage.centerOnScreen();
-		primaryStage.show();
-		scene.setOnKeyPressed(e -> {
-			if (e.getCode() == KeyCode.ESCAPE) {
-				primaryStage.close();
-			}
-		});
-	}
-
-	@FXML
-	private void onMouseClickedPage2(MouseEvent event) throws Exception {
-
-	}
-
-	@FXML
-	private void onMouseClickedPage3(MouseEvent event) throws Exception {
-
+	private void regjistroButtonClicked(ActionEvent event) throws Exception {
 	}
 
 	@FXML
@@ -183,7 +100,34 @@ public class RegisterVendetController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	}
-	
+
+	@FXML
+	private void button1Clicked(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("../views/registerVendetEditKatiTrete.fxml"));
+		loader.load();
+
+		String getButtonText = ((Button) event.getSource()).getText();
+
+		RegisterVendetEditKatiTreteController editController = loader.getController();
+		editController.myfunction(getButtonText);
+
+		Timestamp date = new Timestamp(new Date().getTime());
+		editController.myfunction1(date.toString());
+
+		Parent parent = loader.getRoot();
+		Scene scene = new Scene(parent);
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setScene(scene);
+		primaryStage.centerOnScreen();
+		primaryStage.show();
+		scene.setOnKeyPressed(e -> {
+			if (e.getCode() == KeyCode.ESCAPE) {
+				primaryStage.close();
+			}
+		});
+
+	}
 
 	@FXML
 	private void regjistroNjeLiberClicked(ActionEvent event) throws Exception {
@@ -286,7 +230,7 @@ public class RegisterVendetController implements Initializable {
 	@FXML
 	private void back(MouseEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("../views/admin.fxml"));
+		loader.setLocation(getClass().getResource("../views/registerVendet.fxml"));
 		loader.load();
 		Parent parent = loader.getRoot();
 		Scene scene = new Scene(parent);

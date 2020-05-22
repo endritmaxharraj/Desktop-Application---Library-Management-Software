@@ -1,0 +1,23 @@
+.anchor {
+		-fx-background-color: #1F3B4D;
+}
+
+.anchorPaneNote {
+		-fx-background-color: #1F3B4D;
+}
+
+.minusClick:hover {
+	-fx-cursor: hand;
+}
+
+.xClick:hover {
+	-fx-cursor: hand;
+}
+.back:hover {
+	-fx-cursor: hand;
+}
+
+.labelsTop {
+	-fx-text-fill: #FFF;
+	-fx-font-size: 15px;
+}

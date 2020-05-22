@@ -41,7 +41,7 @@ public class CreateUserController implements Initializable {
 	AnchorPane anchor;
 
 	@FXML
-	ComboBox<String> comboBox;
+	ComboBox <String> comboBox;
 
 	@FXML
 	AnchorPane anchorleft;

@@ -1,40 +1,59 @@
 package main;
 
+import java.time.format.DateTimeFormatter;
+
 public class Vendet{
 
-	private int vendiId;
-	private String emriUlses;
-	private String emriSalles;
+	private int nrVendi;
+	private String EmriMbiemri;
+	private String Sektori;
+	private DateTimeFormatter DataKoha;
 	
 	
-	public Vendet(int vendiId,String emriUlses,String emriSalles){
-	this.vendiId = vendiId;
-	this.emriUlses = emriUlses;
-	this.emriSalles = emriSalles;
+	public Vendet(int nrVendi, String EmriMbiemri, String Sektori, DateTimeFormatter DataKoha) {
+		this.nrVendi = nrVendi;
+		this.EmriMbiemri = EmriMbiemri;
+		this.Sektori = Sektori;
+		this.DataKoha = DataKoha;
 	}
 	
-	
-	public int getVendiId(){
-		return vendiId;
+	public Vendet() {
+
+	}
+
+	public int getNrVendi() {
+		return nrVendi;
 	}
 	
-	public void setVendiId(int vendiId){
-		this.vendiId = vendiId;
+	public void setNrVendi(int nrVendi) {
+		this.nrVendi = nrVendi;
 	}
-	public String getEmriUlses(){
-		return emriUlses;
-	}
-	public void setEmriUlses(String emriUlses){
-		this.emriUlses = emriUlses;
+
+	public String getEmriMbiemri() {
+		return EmriMbiemri;
 	}
 	
-	public String getEmriSalles(){
-		return emriSalles;
+	public void setEmriMbiemri(String emriMbiemri) {
+		EmriMbiemri = emriMbiemri;
 	}
-	public void setEmriSalles(String emriSalles){
-		this.emriSalles = emriSalles;
+
+	public String getSektori() {
+		return Sektori;
+	}
+
+	public void setSektori(String sektori) {
+		Sektori = sektori;
 	}
 	
+	public DateTimeFormatter getDataKoha() {
+		return DataKoha;
+	}
+
+	public void setDataKoha(DateTimeFormatter dataKoha) {
+		DataKoha = dataKoha;
+	}
+
+
 }
 
 
