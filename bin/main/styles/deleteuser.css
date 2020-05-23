@@ -1,0 +1,123 @@
+.anchor {
+		-fx-background-color: #1F3B4D;
+}
+
+.anchor, .anchor * {
+  -fx-font-size: 14px;
+  -fx-font-family: sans-serif;
+}
+
+.anuloButton {
+  -fx-background-color: #1F3B4D;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-border-radius: 0;
+  -fx-border-color: #fff;
+  -fx-border-width: 2px;
+  -fx-color: white;
+  -fx-text-align: center;
+  -fx-text-fill: #FFFFFF;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-size: 12px;
+  -fx-wrap-text: true;
+  -fx-font-weight: bolder;
+	
+}
+
+.anuloButton:hover, .anuloButton:active, .anuloButton:focus {
+  -fx-cursor: hand;
+  -fx-background-color: #BB3F3F;
+  -fx-border-color: #BB3F3F;
+  -fx-text-fill: #1F3B4D;
+  -fx-underline: false;  
+}
+
+.krijoButton {
+  -fx-background-color: #1F3B4D;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-border-color: #fff;
+  -fx-border-radius: 0;
+  -fx-border-width: 2px;
+  -fx-color: white;
+  -fx-text-align: center;
+  -fx-text-fill: #FFFFFF;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-size: 12px;
+  -fx-wrap-text: true;
+  -fx-font-weight: bolder;
+	
+}
+
+.krijoButton:hover, .krijoButton:active, .krijoButton:focus {
+  -fx-cursor: hand;
+  -fx-background-color: #33B864;
+  -fx-border-color: #33B864;
+  -fx-text-fill: #1F3B4D;
+  -fx-underline: false;  
+}
+
+
+.label {
+  -fx-text-fill: #FFFFFF;
+}
+
+.control-field {
+  -fx-border-color: #008080;
+  -fx-background-color: #1F3B4D;
+  -fx-border-radius: 0;
+  -fx-border-width: 2px;
+  -fx-text-fill: #FFF;
+  -fx-prompt-text-fill: #58656D;
+}
+
+.minusClick:hover {
+	-fx-cursor: hand;
+  	-fx-background-color: #000000;
+}
+
+.table-view {
+-fx-background-color: #32BF84;
+-fx-background-radius: 0;
+}
+
+.table-view .column-header-background {
+	-fx-background-color: #32BF84;
+	-fx-background-radius: 0;
+	-fx-background-insets: 0 0 10 0;
+
+}
+
+.table-view .column-header, .table-view .filter {
+	 -fx-size: 40;
+	 -fx-border-width: 0 0 10 0;
+	 -fx-background-color: #32BF84;
+}
+
+.minusClick:hover {
+	-fx-cursor: hand;
+}
+
+.xClick:hover {
+	-fx-cursor: hand;
+}
+
+.backClick:hover {
+	-fx-cursor: hand;
+}
+
+.anchorleft {
+	-fx-background-color: #000133;
+}
+
+.anchorthin {
+	-fx-background-color: #FFF;
+}
+
+.radiobutton {
+	-fx-blend-mode: lighten;
+	-fx-cursor: hand;
+	-fx-text-fill: white;
+}

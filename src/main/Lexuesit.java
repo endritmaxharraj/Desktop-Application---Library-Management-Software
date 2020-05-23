@@ -1,5 +1,7 @@
 package main;
 
+import java.sql.Date;
+
 import javafx.scene.control.DatePicker;
 
 public class Lexuesit {
@@ -10,6 +12,8 @@ public class Lexuesit {
 	private int Cmimi;
 	private DatePicker Regjistrimi;
 	private DatePicker Skadimi;
+	private Date dateRegjistrimi;
+	private Date dateSkadimi;
 
 	public Lexuesit(String EmriMbiemri, String Profesioni, String Adresa, String Sektori,
 			int Cmimi,
@@ -21,6 +25,17 @@ public class Lexuesit {
 		this.Cmimi = Cmimi;
 		this.Regjistrimi = Regjistrimi;
 		this.Skadimi = Skadimi;
+	}
+
+	public Lexuesit(String EmriMbiemri, String Profesioni, String Adresa, String Sektori, int Cmimi,
+			Date dateRegjistrimi, Date dateSkadimi) {
+		this.EmriMbiemri = EmriMbiemri;
+		this.Profesioni = Profesioni;
+		this.Adresa = Adresa;
+		this.Sektori = Sektori;
+		this.Cmimi = Cmimi;
+		this.dateRegjistrimi = dateRegjistrimi;
+		this.dateSkadimi = dateSkadimi;
 	}
 
 	public Lexuesit() {
@@ -81,6 +96,14 @@ public class Lexuesit {
 
 	public void setSkadimi(DatePicker skadimi) {
 		Skadimi = skadimi;
+	}
+
+	public Date getDateRegjistrimi() {
+		return dateRegjistrimi;
+	}
+
+	public Date getDateSkadimi() {
+		return dateSkadimi;
 	}
 
 }

@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -181,7 +180,8 @@ public class RegisterVendetEditKatiPareController implements Initializable {
 		}
 	}
 
-	private Vendet shtoNjeLexuesNeVend(int nrVendi, String EmriMbiemri, String Sektori, DateTimeFormatter DataKoha)
+	private Vendet shtoNjeLexuesNeVend(int nrVendi, String EmriMbiemri, String Sektori,
+			Timestamp DataKoha)
 			throws Exception {
 		Connection con = DBConnector.getConnection();
 		String SQL = "INSERT INTO Vendet(nrVendi,EmriMbiemri,Sektori,DataKoha) VALUE(?,?,?,?)";

@@ -58,7 +58,7 @@ public class AdminController implements Initializable {
 	private Button regjistroTeDhenaButton;
 
 	@FXML
-	private Button krijoUserButton;
+	private Button MenaxhoUseratButton;
 
 	@FXML
 	private Button kerkoTeDhenaButton;
@@ -108,8 +108,8 @@ public class AdminController implements Initializable {
 	}
 
 	@FXML
-	private void krijoUserButtonClicked(ActionEvent event) throws Exception {
-		Parent parent = FXMLLoader.load(getClass().getResource("../views/createuser.fxml"));
+	private void MenaxhoUseratButtonClicked(ActionEvent event) throws Exception {
+		Parent parent = FXMLLoader.load(getClass().getResource("../views/menaxhoUsers.fxml"));
 		Scene scene = new Scene(parent);
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(scene);
@@ -125,10 +125,32 @@ public class AdminController implements Initializable {
 
 	@FXML
 	private void kerkoTeDhenaButtonClicked(ActionEvent event) throws Exception {
+		Parent parent = FXMLLoader.load(getClass().getResource("../views/kerkoteDhena.fxml"));
+		Scene scene = new Scene(parent);
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setScene(scene);
+		primaryStage.centerOnScreen();
+		primaryStage.show();
+		scene.setOnKeyPressed(e -> {
+			if (e.getCode() == KeyCode.ESCAPE) {
+				primaryStage.close();
+			}
+		});
 	}
 
 	@FXML
 	private void menaxhoPunenButtonClicked(ActionEvent event) throws Exception {
+		Parent parent = FXMLLoader.load(getClass().getResource("../views/menaxhoData.fxml"));
+		Scene scene = new Scene(parent);
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setScene(scene);
+		primaryStage.centerOnScreen();
+		primaryStage.show();
+		scene.setOnKeyPressed(e -> {
+			if (e.getCode() == KeyCode.ESCAPE) {
+				primaryStage.close();
+			}
+		});
 	}
 
 	@FXML

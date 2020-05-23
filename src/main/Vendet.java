@@ -1,16 +1,15 @@
 package main;
 
-import java.time.format.DateTimeFormatter;
+import java.sql.Timestamp;
 
 public class Vendet{
 
 	private int nrVendi;
 	private String EmriMbiemri;
 	private String Sektori;
-	private DateTimeFormatter DataKoha;
+	private Timestamp DataKoha;
 	
-	
-	public Vendet(int nrVendi, String EmriMbiemri, String Sektori, DateTimeFormatter DataKoha) {
+	public Vendet(int nrVendi, String EmriMbiemri, String Sektori, Timestamp DataKoha) {
 		this.nrVendi = nrVendi;
 		this.EmriMbiemri = EmriMbiemri;
 		this.Sektori = Sektori;
@@ -45,14 +44,13 @@ public class Vendet{
 		Sektori = sektori;
 	}
 	
-	public DateTimeFormatter getDataKoha() {
+	public Timestamp getDataKoha() {
 		return DataKoha;
 	}
 
-	public void setDataKoha(DateTimeFormatter dataKoha) {
+	public void setDataKoha(Timestamp dataKoha) {
 		DataKoha = dataKoha;
 	}
-
 
 }
 

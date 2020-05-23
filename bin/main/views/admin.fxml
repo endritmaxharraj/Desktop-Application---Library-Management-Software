@@ -80,7 +80,7 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
             <Button fx:id="regjistroTeDhenaButton" mnemonicParsing="false" onAction="#regjistroTeDhenaButtonClicked" prefHeight="49.0" prefWidth="147.0" styleClass="buttons" stylesheets="@../styles/admin.css" text="REGJISTRO TE DHENA" />
-            <Button fx:id="krijoUserButton" mnemonicParsing="false" onAction="#krijoUserButtonClicked" prefHeight="49.0" prefWidth="147.0" styleClass="buttons" text="KRIJO USER" />
+            <Button fx:id="MenaxhoUseratButton" mnemonicParsing="false" onAction="#MenaxhoUseratButtonClicked" prefHeight="49.0" prefWidth="147.0" styleClass="buttons" text="MENAXHO USERAT" />
             <Button fx:id="kerkoTeDhenaButton" mnemonicParsing="false" onAction="#kerkoTeDhenaButtonClicked" prefHeight="49.0" prefWidth="147.0" styleClass="buttons" text="KERKO TE DHENA" />
          </children>
       </HBox>
