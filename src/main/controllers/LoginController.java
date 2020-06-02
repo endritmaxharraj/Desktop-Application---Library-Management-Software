@@ -25,7 +25,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import main.DBConnector;
+import main.utils.DBConnector;
 
 public class LoginController implements Initializable {
 
@@ -108,6 +108,9 @@ public class LoginController implements Initializable {
 							primaryStage.close();
 						}
 					});
+					AdminController admin = loader.getController();
+					admin.setText(usernameField.getText());
+
 				} else if (getUserType.equals("user")) {
 					// Login Succesfully User
 					loader.setLocation(getClass().getResource("../views/user.fxml"));
@@ -123,6 +126,8 @@ public class LoginController implements Initializable {
 							primaryStage.close();
 						}
 					});
+					UserController user = loader.getController();
+					user.setText(usernameField.getText());
 				}
 				}
 				else {
@@ -134,8 +139,6 @@ public class LoginController implements Initializable {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		AdminController admin = loader.getController();
-		admin.setText(usernameField.getText());
 	}
 
 	@FXML
@@ -167,6 +170,9 @@ public class LoginController implements Initializable {
 								primaryStage.close();
 							}
 						});
+
+						AdminController admin = loader.getController();
+						admin.setText(usernameField.getText());
 					} else if (getUserType.equals("user")) {
 						// Login Succesfully User
 						loader.setLocation(getClass().getResource("../views/user.fxml"));
@@ -182,6 +188,8 @@ public class LoginController implements Initializable {
 								primaryStage.close();
 							}
 						});
+						UserController user = loader.getController();
+						user.setText(usernameField.getText());
 					}
 				} else {
 					Alert alert = new Alert(AlertType.ERROR);
@@ -192,8 +200,6 @@ public class LoginController implements Initializable {
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-			AdminController admin = loader.getController();
-			admin.setText(usernameField.getText());
 		}
 
 	}
@@ -227,6 +233,9 @@ public class LoginController implements Initializable {
 								primaryStage.close();
 							}
 						});
+						AdminController admin = loader.getController();
+						admin.setText(usernameField.getText());
+
 					} else if (getUserType.equals("user")) {
 						// Login Succesfully User
 						loader.setLocation(getClass().getResource("../views/user.fxml"));
@@ -242,6 +251,8 @@ public class LoginController implements Initializable {
 								primaryStage.close();
 							}
 						});
+						UserController user = loader.getController();
+						user.setText(usernameField.getText());
 					}
 				} else {
 					Alert alert = new Alert(AlertType.ERROR);
@@ -252,8 +263,6 @@ public class LoginController implements Initializable {
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-			AdminController admin = loader.getController();
-			admin.setText(usernameField.getText());
 		}
 
 	}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" onMouseDragged="#draged" onMousePressed="#pressed" prefHeight="550.0" prefWidth="851.0" styleClass="anchor" stylesheets="@../../styles/register/registerVendet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.register.RegisterVendetController">
+   <children>
+      <AnchorPane fx:id="leftanchorPane" prefHeight="500.0" prefWidth="39.0" styleClass="left-anchor" />
+      <AnchorPane fx:id="buttonsanchorPane" layoutX="42.0" layoutY="-1.0" prefHeight="550.0" prefWidth="166.0" styleClass="button-anchor">
+         <children>
+            <Button fx:id="regjistroNjeLiber" layoutX="-42.0" layoutY="131.0" mnemonicParsing="false" onAction="#regjistroNjeLiberClicked" prefHeight="54.0" prefWidth="208.0" styleClass="buttons" text="REGJISTRO NJE LIBER" textAlignment="CENTER" />
+            <Button fx:id="regjistroNjeLexues" layoutX="-42.0" layoutY="192.0" mnemonicParsing="false" onAction="#regjistroNjeLexuesClicked" prefHeight="54.0" prefWidth="208.0" styleClass="buttons" text="REGJISTRO NJE LEXUES" />
+            <Button fx:id="regjistroMbajtesineLibrit" layoutX="-42.0" layoutY="253.0" mnemonicParsing="false" onAction="#regjistroMbajtesineLibritClicked" prefHeight="54.0" prefWidth="208.0" styleClass="buttons" text="REGJISTRO MBAJTESINE E LIBRIT" />
+            <Button fx:id="regjistroVendin" layoutX="-42.0" layoutY="314.0" mnemonicParsing="false" onAction="#regjistroVendinClicked" prefHeight="54.0" prefWidth="208.0" styleClass="buttonClicked" text="REGJISTRO VENDIN" />
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
+      <HBox prefHeight="86.0" prefWidth="850.0">
+         <children>
+            <ImageView fx:id="backSign" fitHeight="77.0" fitWidth="64.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true" styleClass="back">
+               <image>
+                  <Image url="@../../images/backSign.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="min" fitHeight="30.0" fitWidth="54.0" onMouseClicked="#min" pickOnBounds="true" preserveRatio="true" styleClass="minusClick">
+               <HBox.margin>
+                  <Insets left="625.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../../images/MinimizeWindows.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="close" fitHeight="30.0" fitWidth="54.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true" styleClass="xClick">
+               <image>
+                  <Image url="@../../images/xWindows.png" />
+               </image>
+            </ImageView>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="87.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <Label fx:id="zgjedhKatin" alignment="CENTER" contentDisplay="CENTER" layoutX="211.0" layoutY="86.0" prefHeight="42.0" prefWidth="639.0" styleClass="labelsTop" text="ZGJEDH KATIN:" textAlignment="CENTER" />
+      <VBox alignment="CENTER" layoutX="211.0" layoutY="131.0" prefHeight="418.0" prefWidth="639.0" spacing="20.0">
+         <children>
+            <Button fx:id="katipare" mnemonicParsing="false" onAction="#katiPareClicked" prefHeight="49.0" prefWidth="118.0" styleClass="buttonsKatet" text="KATI I PARE" />
+            <Button fx:id="katidyte" mnemonicParsing="false" onAction="#katiDyteClicked" prefHeight="49.0" prefWidth="118.0" styleClass="buttonsKatet" text="KATI I DYTE" />
+            <Button fx:id="katitrete" mnemonicParsing="false" onAction="#katiTreteClicked" prefHeight="49.0" prefWidth="118.0" styleClass="buttonsKatet" text="KATI TRETE" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

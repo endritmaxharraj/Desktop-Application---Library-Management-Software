@@ -30,8 +30,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import main.DBConnector;
-import main.User;
+import main.models.User;
+import main.utils.DBConnector;
 
 public class CreateUserController implements Initializable {
 
@@ -166,7 +166,7 @@ public class CreateUserController implements Initializable {
 	@FXML
 	private void back(MouseEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("../views/menaxhoUsers.fxml"));
+		loader.setLocation(getClass().getResource("../views/menaxho/menaxhoUsers.fxml"));
 		loader.load();
 		Parent parent = loader.getRoot();
 		Scene scene = new Scene(parent);

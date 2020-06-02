@@ -94,7 +94,7 @@ public class AdminController implements Initializable {
 
 	@FXML
 	private void regjistroTeDhenaButtonClicked(ActionEvent event) throws Exception {
-		Parent parent = FXMLLoader.load(getClass().getResource("../views/registerdata.fxml"));
+		Parent parent = FXMLLoader.load(getClass().getResource("../views/register/registerdata.fxml"));
 		Scene scene = new Scene(parent);
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(scene);
@@ -109,7 +109,7 @@ public class AdminController implements Initializable {
 
 	@FXML
 	private void MenaxhoUseratButtonClicked(ActionEvent event) throws Exception {
-		Parent parent = FXMLLoader.load(getClass().getResource("../views/menaxhoUsers.fxml"));
+		Parent parent = FXMLLoader.load(getClass().getResource("../views/menaxho/menaxhoUsers.fxml"));
 		Scene scene = new Scene(parent);
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(scene);
@@ -125,7 +125,7 @@ public class AdminController implements Initializable {
 
 	@FXML
 	private void kerkoTeDhenaButtonClicked(ActionEvent event) throws Exception {
-		Parent parent = FXMLLoader.load(getClass().getResource("../views/kerkoteDhena.fxml"));
+		Parent parent = FXMLLoader.load(getClass().getResource("../views/kerko/kerkoteDhena.fxml"));
 		Scene scene = new Scene(parent);
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(scene);
@@ -140,7 +140,7 @@ public class AdminController implements Initializable {
 
 	@FXML
 	private void menaxhoPunenButtonClicked(ActionEvent event) throws Exception {
-		Parent parent = FXMLLoader.load(getClass().getResource("../views/menaxhoData.fxml"));
+		Parent parent = FXMLLoader.load(getClass().getResource("../views/menaxho/menaxhoData.fxml"));
 		Scene scene = new Scene(parent);
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(scene);

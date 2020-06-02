@@ -33,7 +33,7 @@
          <children>
             <ImageView fx:id="imgBack" fitHeight="77.0" fitWidth="64.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true" styleClass="backClick">
                <image>
-                  <Image url="@../../images/backSign.png" />
+                  <Image url="@../images/backSign.png" />
                </image>
                <HBox.margin>
                   <Insets left="50.0" top="20.0" />
@@ -47,12 +47,12 @@
                   <Insets bottom="10.0" left="600.0" top="10.0" />
                </HBox.margin>
                <image>
-                  <Image url="@../../images/MinimizeWindows.png" />
+                  <Image url="@../images/MinimizeWindows.png" />
                </image>
             </ImageView>
             <ImageView fx:id="imgX" fitHeight="30.0" fitWidth="54.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true" styleClass="xClick">
                <image>
-                  <Image url="@../../images/xWindows.png" />
+                  <Image url="@../images/xWindows.png" />
                </image>
                <HBox.margin>
                   <Insets bottom="10.0" left="5.0" top="10.0" />
@@ -78,7 +78,7 @@
             <TextField fx:id="usernameField" promptText="Username" styleClass="control-field" GridPane.columnIndex="1" GridPane.columnSpan="2" />
             <ImageView fx:id="imgUserLogo" fitHeight="37.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/username.png" />
+                  <Image url="@../images/username.png" />
                </image>
                <GridPane.margin>
                   <Insets bottom="60.0" left="65.0" right="60.0" top="52.0" />
@@ -86,7 +86,7 @@
             </ImageView>
             <ImageView fx:id="imgPasswordLogo" fitHeight="37.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../images/password.png" />
+                  <Image url="@../images/password.png" />
                </image>
                <GridPane.margin>
                   <Insets bottom="60.0" left="66.0" right="60.0" top="68.0" />
@@ -94,7 +94,7 @@
             </ImageView>
             <ImageView fx:id="imgConfirmPasswordLogo" fitHeight="37.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../images/password.png" />
+                  <Image url="@../images/password.png" />
                </image>
                <GridPane.margin>
                   <Insets bottom="60.0" left="66.0" right="60.0" top="68.0" />
@@ -110,7 +110,7 @@
                   <Insets bottom="60.0" left="70.0" right="60.0" top="55.0" />
                </GridPane.margin>
                <image>
-                  <Image url="@../../images/settings.png" />
+                  <Image url="@../images/settings.png" />
                </image>
             </ImageView>
          </children>

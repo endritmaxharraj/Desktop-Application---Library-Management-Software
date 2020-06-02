@@ -20,12 +20,12 @@
          <children>
             <ImageView fitHeight="28.0" fitWidth="30.0" onMouseClicked="#min" pickOnBounds="true" preserveRatio="true" styleClass="minusClick">
                <image>
-                  <Image url="@../../images/MinimizeWindows.png" />
+                  <Image url="@../images/MinimizeWindows.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="28.0" fitWidth="30.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true" styleClass="minusClick">
                <image>
-                  <Image url="@../../images/xWindows.png" />
+                  <Image url="@../images/xWindows.png" />
                </image>
             </ImageView>
          </children>
@@ -39,7 +39,7 @@
       <Label fx:id="lab" />
       <ImageView fitHeight="37.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/loginLogo.png" />
+            <Image url="@../images/loginLogo.png" />
          </image>
       </ImageView>
       <GridPane alignment="CENTER" hgap="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="198.0" prefWidth="334.0" vgap="15.0">
@@ -62,7 +62,7 @@
                </font></Button>
             <ImageView fitHeight="68.0" fitWidth="44.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/username.png" />
+                  <Image url="@../images/username.png" />
                </image>
                <GridPane.margin>
                   <Insets bottom="70.0" left="70.0" right="70.0" top="62.0" />
@@ -70,7 +70,7 @@
             </ImageView>
             <ImageView fitHeight="68.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../images/password.png" />
+                  <Image url="@../images/password.png" />
                </image>
                <GridPane.margin>
                   <Insets bottom="70.0" left="72.0" right="70.0" top="79.0" />

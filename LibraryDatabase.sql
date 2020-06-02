@@ -69,7 +69,7 @@ create table Vendet (
  nrVendi int primary key,
  EmriMbiemri varchar(50),
  Sektori varchar(40) NOT NULL,
- DataKoha datetime,
+ DataKoha timestamp,
  foreign key(EmriMbiemri) references Lexuesit(EmriMbiemri) on delete cascade
 )
 ENGINE = InnoDB;
