@@ -94,7 +94,7 @@ public class RegisterBookController implements Initializable {
 	@FXML
 	private void anuloButtonClicked(ActionEvent event) throws Exception {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("../../views/admin.fxml"));
+		loader.setLocation(getClass().getResource("../../views/main-screen.fxml"));
 		loader.load();
 		Parent parent = loader.getRoot();
 		Scene scene = new Scene(parent);
@@ -303,7 +303,7 @@ public class RegisterBookController implements Initializable {
 	@FXML
 	private void back(MouseEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("../../views/admin.fxml"));
+		loader.setLocation(getClass().getResource("../../views/main-screen.fxml"));
 		loader.load();
 		Parent parent = loader.getRoot();
 		Scene scene = new Scene(parent);

@@ -283,7 +283,7 @@ public class KerkoLexuesController implements Initializable {
 	private void back(MouseEvent event) throws IOException {
 
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("../../views/admin.fxml"));
+		loader.setLocation(getClass().getResource("../../views/main-screen.fxml"));
 		loader.load();
 		Parent parent = loader.getRoot();
 		Scene scene = new Scene(parent);

@@ -1,9 +1,9 @@
 package main.controllers;
 
 import java.net.URL;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -13,8 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -25,7 +23,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import main.models.User;
+import main.repositories.UserRepository;
 import main.utils.DBConnector;
+import main.utils.SessionManager;
 
 public class LoginController implements Initializable {
 
@@ -79,191 +80,75 @@ public class LoginController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	}
 
-	@FXML
-	private void loginButtonClicked(ActionEvent event) throws Exception {
-		FXMLLoader loader = new FXMLLoader();
-		try {
-			Connection con = DBConnector.getConnection();
-			String SQL = "SELECT * FROM `users` WHERE `user_name` = ? AND `user_pass` = ?";
-			PreparedStatement stmt = con.prepareStatement(SQL);
-			stmt.setString(1, usernameField.getText());
-			stmt.setString(2, passwordField.getText());
-			ResultSet rs1 = stmt.executeQuery();
+	private User login(String user_name, String user_pass) throws Exception {
+		User user = UserRepository.find(user_name);
+		if (user == null) {
+			return null;
+		}
+		return user;
+	}
 
-			if (rs1.next())
-				{
-					// Login Succesfully Admin
-					String getUserType = rs1.getNString("user_type");
-					if (getUserType.equals("admin")) {
-						loader.setLocation(getClass().getResource("../views/admin.fxml"));
-						loader.load();
-						Parent parent = loader.getRoot();
-					Scene scene = new Scene(parent);
-					Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-					primaryStage.setScene(scene);
-					primaryStage.centerOnScreen();
-					primaryStage.show();
-					scene.setOnKeyPressed(e -> {
-						if (e.getCode() == KeyCode.ESCAPE) {
-							primaryStage.close();
-						}
-					});
-					AdminController admin = loader.getController();
-					admin.setText(usernameField.getText());
+	private boolean hasUsers() throws Exception {
+		return UserRepository.count() > 0;
+	}
 
-				} else if (getUserType.equals("user")) {
-					// Login Succesfully User
-					loader.setLocation(getClass().getResource("../views/user.fxml"));
-					loader.load();
-					Parent parent = loader.getRoot();
-					Scene scene = new Scene(parent);
-					Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-					primaryStage.setScene(scene);
-					primaryStage.centerOnScreen();
-					primaryStage.show();
-					scene.setOnKeyPressed(e -> {
-						if (e.getCode() == KeyCode.ESCAPE) {
-							primaryStage.close();
-						}
-					});
-					UserController user = loader.getController();
-					user.setText(usernameField.getText());
-				}
-				}
-				else {
-					Alert alert = new Alert(AlertType.ERROR);
-					alert.setContentText("Invalid credentials!");
-					alert.showAndWait();
-				}
-			con.close();
-		} catch (Exception e) {
-			System.out.println(e);
+	public static String findRole(String user_name) throws Exception {
+		String admin = "admin";
+		String user = "user";
+		PreparedStatement stmt = DBConnector.getConnection()
+				.prepareStatement("SELECT * from Users where user_name = ? Limit 1");
+		stmt.setString(1, user_name);
+		ResultSet res = stmt.executeQuery();
+		String role = res.getString("user_type");
+		if (role.equals("admin")) {
+			return admin;
+		} else {
+			return user;
 		}
 	}
 
+
 	@FXML
-	private void enterKeyPressLogin(KeyEvent event) {
-		if (event.getCode() == KeyCode.ENTER) {
-			FXMLLoader loader = new FXMLLoader();
-			try {
-				Connection con = DBConnector.getConnection();
-				String SQL = "SELECT * FROM `users` WHERE `user_name` = ? AND `user_pass` = ?";
-				PreparedStatement stmt = con.prepareStatement(SQL);
-				stmt.setString(1, usernameField.getText());
-				stmt.setString(2, passwordField.getText());
-				ResultSet rs1 = stmt.executeQuery();
+	private void loginButtonClicked(ActionEvent event) throws Exception {
 
-				if (rs1.next()) {
-					// Login Succesfully Admin
-					String getUserType = rs1.getNString("user_type");
-					if (getUserType.equals("admin")) {
-						loader.setLocation(getClass().getResource("../views/admin.fxml"));
-						loader.load();
-						Parent parent = loader.getRoot();
-						Scene scene = new Scene(parent);
-						Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-						primaryStage.setScene(scene);
-						primaryStage.centerOnScreen();
-						primaryStage.show();
-						scene.setOnKeyPressed(e -> {
-							if (e.getCode() == KeyCode.ESCAPE) {
-								primaryStage.close();
-							}
-						});
+			String username = usernameField.getText();
+			String password = passwordField.getText();
 
-						AdminController admin = loader.getController();
-						admin.setText(usernameField.getText());
-					} else if (getUserType.equals("user")) {
-						// Login Succesfully User
-						loader.setLocation(getClass().getResource("../views/user.fxml"));
-						loader.load();
-						Parent parent = loader.getRoot();
-						Scene scene = new Scene(parent);
-						Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-						primaryStage.setScene(scene);
-						primaryStage.centerOnScreen();
-						primaryStage.show();
-						scene.setOnKeyPressed(e -> {
-							if (e.getCode() == KeyCode.ESCAPE) {
-								primaryStage.close();
-							}
-						});
-						UserController user = loader.getController();
-						user.setText(usernameField.getText());
+			User user = null;
+			if (hasUsers()) {
+				user = login(username, password);
+
+				SessionManager.user = user;
+				SessionManager.lastLogin = new Date();
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(getClass().getResource("../views/main-screen.fxml"));
+				loader.load();
+				Parent parent = loader.getRoot();
+				Scene scene = new Scene(parent);
+				Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				primaryStage.setScene(scene);
+				primaryStage.centerOnScreen();
+				primaryStage.show();
+				scene.setOnKeyPressed(e -> {
+					if (e.getCode() == KeyCode.ESCAPE) {
+						primaryStage.close();
 					}
-				} else {
-					Alert alert = new Alert(AlertType.ERROR);
-					alert.setContentText("Invalid credentials!");
-					alert.showAndWait();
-				}
-				con.close();
-			} catch (Exception e) {
-				System.out.println(e);
+				});
+			} else {
+				throw new Exception("user not egzist!");
 			}
 		}
+	
+
+
+
+	@FXML
+	private void enterKeyPressLogin(KeyEvent event) {
 
 	}
 
 	@FXML
 	private void enterKeyPassLogin(KeyEvent event) {
-		if (event.getCode() == KeyCode.ENTER) {
-			FXMLLoader loader = new FXMLLoader();
-			try {
-				Connection con = DBConnector.getConnection();
-				String SQL = "SELECT * FROM `users` WHERE `user_name` = ? AND `user_pass` = ?";
-				PreparedStatement stmt = con.prepareStatement(SQL);
-				stmt.setString(1, usernameField.getText());
-				stmt.setString(2, passwordField.getText());
-				ResultSet rs1 = stmt.executeQuery();
-
-				if (rs1.next()) {
-					// Login Succesfully Admin
-					String getUserType = rs1.getNString("user_type");
-					if (getUserType.equals("admin")) {
-						loader.setLocation(getClass().getResource("../views/admin.fxml"));
-						loader.load();
-						Parent parent = loader.getRoot();
-						Scene scene = new Scene(parent);
-						Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-						primaryStage.setScene(scene);
-						primaryStage.centerOnScreen();
-						primaryStage.show();
-						scene.setOnKeyPressed(e -> {
-							if (e.getCode() == KeyCode.ESCAPE) {
-								primaryStage.close();
-							}
-						});
-						AdminController admin = loader.getController();
-						admin.setText(usernameField.getText());
-
-					} else if (getUserType.equals("user")) {
-						// Login Succesfully User
-						loader.setLocation(getClass().getResource("../views/user.fxml"));
-						loader.load();
-						Parent parent = loader.getRoot();
-						Scene scene = new Scene(parent);
-						Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-						primaryStage.setScene(scene);
-						primaryStage.centerOnScreen();
-						primaryStage.show();
-						scene.setOnKeyPressed(e -> {
-							if (e.getCode() == KeyCode.ESCAPE) {
-								primaryStage.close();
-							}
-						});
-						UserController user = loader.getController();
-						user.setText(usernameField.getText());
-					}
-				} else {
-					Alert alert = new Alert(AlertType.ERROR);
-					alert.setContentText("Invalid credentials!");
-					alert.showAndWait();
-				}
-				con.close();
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-		}
 
 	}
 

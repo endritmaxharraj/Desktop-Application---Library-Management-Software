@@ -7,10 +7,12 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import main.utils.DBConnector;
 // klasa main
 public class Main extends Application {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		DBConnector.migrate();
 		Application.launch(args);
 	}
 
