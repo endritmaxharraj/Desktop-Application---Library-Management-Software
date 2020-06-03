@@ -25,6 +25,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import main.components.AboutComponent;
 import main.components.ErrorPopupComponent;
 import main.utils.DBConnector;
 import main.utils.DateHelper;
@@ -48,9 +49,6 @@ public class MainController implements Initializable {
 
 	@FXML
 	private Menu Edit;
-
-	@FXML
-	private MenuItem Delete;
 
 	@FXML
 	private HBox firstButtons;
@@ -88,6 +86,46 @@ public class MainController implements Initializable {
 	@FXML
 	private Label statusLabel;
 
+	@FXML
+	private void onAboutClick(ActionEvent event) {
+		try {
+			new AboutComponent().showDialog();
+		} catch (Exception e) {
+			ErrorPopupComponent.show(e);
+		}
+	}
+
+	@FXML
+	private void onCloseNavClick(ActionEvent event) {
+		try {
+			Stage primaryStage = (Stage) statusLabel.getScene().getWindow();
+			primaryStage.close();
+		} catch (Exception e) {
+			ErrorPopupComponent.show(e);
+		}
+	}
+
+	@FXML
+	private void onLogoutNavClick(ActionEvent event) {
+		try {
+			Parent parent = FXMLLoader.load(getClass().getResource("../views/login.fxml"));
+			Scene scene = new Scene(parent);
+
+			Stage primaryStage = null;
+			if (event.getSource() instanceof MenuItem) {
+				primaryStage = (Stage) statusLabel.getScene().getWindow();
+			} else {
+				primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			}
+			primaryStage.setScene(scene);
+
+			SessionManager.user = null;
+			primaryStage.centerOnScreen();
+			primaryStage.show();
+		} catch (Exception e) {
+			ErrorPopupComponent.show(e);
+		}
+	}
 
 	@FXML
 	private void min(MouseEvent event) {
@@ -119,13 +157,11 @@ public class MainController implements Initializable {
 				String getUserType = rs.getNString("user_type");
 				if (getUserType.equals("admin")) {
 					// Button Show
-//					MenaxhoUseratButton.setVisible(true);
 					MenaxhoUseratButton.setDisable(false);
 
 			} else if (getUserType.equals("user")) {
-				// Button Hide
-//				MenaxhoUseratButton.setVisible(false);
-				MenaxhoUseratButton.setDisable(true);
+				// Button Remove
+				firstButtons.getChildren().remove(MenaxhoUseratButton);
 			
 			}else {
 				Alert alert = new Alert(AlertType.ERROR);

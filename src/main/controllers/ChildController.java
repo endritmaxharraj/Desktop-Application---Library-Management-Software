@@ -3,10 +3,10 @@ package main.controllers;
 import javafx.fxml.Initializable;
 
 public abstract class ChildController implements Initializable {
-	public MainController parentAdminController;
+	public MainController parentMainController;
 
-	public void setParentAdminController(MainController parentAdminController) {
-		this.parentAdminController = parentAdminController;
+	public void setParentMainController(MainController parentMainController) {
+		this.parentMainController = parentMainController;
 	}
 
 	}

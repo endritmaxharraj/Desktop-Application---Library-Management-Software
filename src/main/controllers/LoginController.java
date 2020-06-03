@@ -1,6 +1,7 @@
 package main.controllers;
 
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Date;
@@ -81,15 +82,27 @@ public class LoginController implements Initializable {
 	}
 
 	private User login(String user_name, String user_pass) throws Exception {
-		User user = UserRepository.find(user_name);
+		User user = UserRepository.find(user_name, user_pass);
 		if (user == null) {
-			return null;
+			lab.setText("Invalid credentials!");
+			lab.setStyle("-fx-text-fill: #FF073A;");
 		}
 		return user;
 	}
 
-	private boolean hasUsers() throws Exception {
-		return UserRepository.count() > 0;
+	public boolean checkIfUserEgzist(String user_name, String user_pass) throws Exception {
+		Connection con = DBConnector.getConnection();
+		String SQL = "SELECT * from users where user_name = ? and user_pass = ?";
+		PreparedStatement stcon = con.prepareStatement(SQL);
+		stcon.setString(1, user_name);
+		stcon.setString(2, user_pass);
+		ResultSet rs = stcon.executeQuery();
+		if (!rs.next()) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 
 	public static String findRole(String user_name) throws Exception {
@@ -110,16 +123,32 @@ public class LoginController implements Initializable {
 
 	@FXML
 	private void loginButtonClicked(ActionEvent event) throws Exception {
+		if (usernameField.getText().isEmpty() && passwordField.getText().isEmpty())
+		{
+				lab.setText("Ju lutem plotesoni username dhe password!");
+				lab.setStyle("-fx-text-fill: #FF073A;");
+		}
+		else if (usernameField.getText().isEmpty())
+		{
+			lab.setText("Ju lutem plotesoni username!");
+			lab.setStyle("-fx-text-fill: #FF073A;");
+		}
+		else if (passwordField.getText().isEmpty())
+		{
+			lab.setText("Ju lutem plotesoni password!");
+			lab.setStyle("-fx-text-fill: #FF073A;");
+		}
+		else {
 
 			String username = usernameField.getText();
 			String password = passwordField.getText();
-
 			User user = null;
-			if (hasUsers()) {
+			if (checkIfUserEgzist(username, password)) {
 				user = login(username, password);
 
 				SessionManager.user = user;
 				SessionManager.lastLogin = new Date();
+
 				FXMLLoader loader = new FXMLLoader();
 				loader.setLocation(getClass().getResource("../views/main-screen.fxml"));
 				loader.load();
@@ -131,24 +160,119 @@ public class LoginController implements Initializable {
 				primaryStage.show();
 				scene.setOnKeyPressed(e -> {
 					if (e.getCode() == KeyCode.ESCAPE) {
+						SessionManager.user = null;
 						primaryStage.close();
 					}
 				});
+
 			} else {
-				throw new Exception("user not egzist!");
+				lab.setText("Invalid Credentials!");
+				lab.setStyle("-fx-text-fill: #FF073A;");
 			}
 		}
+	}
 	
 
 
 
 	@FXML
-	private void enterKeyPressLogin(KeyEvent event) {
+	private void enterKeyPressLogin(KeyEvent event) throws Exception {
+		if (event.getCode() == KeyCode.ENTER) {
+
+			if (usernameField.getText().isEmpty() && passwordField.getText().isEmpty()) {
+				lab.setText("Ju lutem plotesoni username dhe password!");
+				lab.setStyle("-fx-text-fill: #FF073A;");
+			} else if (usernameField.getText().isEmpty()) {
+				lab.setText("Ju lutem plotesoni username!");
+				lab.setStyle("-fx-text-fill: #FF073A;");
+			} else if (passwordField.getText().isEmpty()) {
+				lab.setText("Ju lutem plotesoni password!");
+				lab.setStyle("-fx-text-fill: #FF073A;");
+			} else {
+
+				String username = usernameField.getText();
+				String password = passwordField.getText();
+				User user = null;
+				if (checkIfUserEgzist(username, password)) {
+					user = login(username, password);
+
+					SessionManager.user = user;
+					SessionManager.lastLogin = new Date();
+
+					FXMLLoader loader = new FXMLLoader();
+					loader.setLocation(getClass().getResource("../views/main-screen.fxml"));
+					loader.load();
+					Parent parent = loader.getRoot();
+					Scene scene = new Scene(parent);
+					Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+					primaryStage.setScene(scene);
+					primaryStage.centerOnScreen();
+					primaryStage.show();
+					scene.setOnKeyPressed(e -> {
+						if (e.getCode() == KeyCode.ESCAPE) {
+							SessionManager.user = null;
+							primaryStage.close();
+						}
+					});
+
+				} else {
+					lab.setText("Invalid Credentials!");
+					lab.setStyle("-fx-text-fill: #FF073A;");
+				}
+			}
+
+		}
 
 	}
 
 	@FXML
-	private void enterKeyPassLogin(KeyEvent event) {
+	private void enterKeyPassLogin(KeyEvent event) throws Exception {
+
+		if (event.getCode() == KeyCode.ENTER) {
+
+			if (usernameField.getText().isEmpty() && passwordField.getText().isEmpty()) {
+				lab.setText("Ju lutem plotesoni username dhe password!");
+				lab.setStyle("-fx-text-fill: #FF073A;");
+			} else if (usernameField.getText().isEmpty()) {
+				lab.setText("Ju lutem plotesoni username!");
+				lab.setStyle("-fx-text-fill: #FF073A;");
+			} else if (passwordField.getText().isEmpty()) {
+				lab.setText("Ju lutem plotesoni password!");
+				lab.setStyle("-fx-text-fill: #FF073A;");
+			} else {
+
+				String username = usernameField.getText();
+				String password = passwordField.getText();
+				User user = null;
+				if (checkIfUserEgzist(username, password)) {
+					user = login(username, password);
+
+					SessionManager.user = user;
+					SessionManager.lastLogin = new Date();
+
+					FXMLLoader loader = new FXMLLoader();
+					loader.setLocation(getClass().getResource("../views/main-screen.fxml"));
+					loader.load();
+					Parent parent = loader.getRoot();
+					Scene scene = new Scene(parent);
+					Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+					primaryStage.setScene(scene);
+					primaryStage.centerOnScreen();
+					primaryStage.show();
+					scene.setOnKeyPressed(e -> {
+						if (e.getCode() == KeyCode.ESCAPE) {
+							SessionManager.user = null;
+							primaryStage.close();
+						}
+					});
+
+				} else {
+					lab.setText("Invalid Credentials!");
+					lab.setStyle("-fx-text-fill: #FF073A;");
+				}
+			}
+
+		}
 
 	}
 

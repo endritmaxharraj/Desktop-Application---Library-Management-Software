@@ -33,11 +33,12 @@ public class UserRepository {
 		return list;
 	}
 
-	public static User find(String user_name) throws Exception {
+	public static User find(String user_name, String user_pass) throws Exception {
 		PreparedStatement stmt = DBConnector
 				.getConnection()
-				.prepareStatement("SELECT * FROM users WHERE user_name = ? LIMIT 1");
+				.prepareStatement("SELECT * FROM users WHERE user_name = ? AND user_pass = ? LIMIT 1");
 		stmt.setString(1, user_name);
+		stmt.setString(2, user_pass);
 
 		ResultSet res = stmt.executeQuery();
 		if (!res.next())
@@ -70,7 +71,7 @@ public class UserRepository {
 		if (stmt.executeUpdate() != 1)
 			throw new Exception("ERR_NO_ROW_CHANGE");
 
-		return find(model.getUser_name());
+		return find(model.getUser_name(), model.getUser_pass());
 	}
 
 	public static boolean remove(String user_name) throws Exception {

@@ -1,0 +1,43 @@
+/* https://www.color-hex.com/color-palette/4666 */
+
+.root {
+  -fx-background-color: #364f6b
+;
+}
+
+.root, .root * {
+  -fx-font-size: 14px;
+  -fx-font-family: sans-serif;
+}
+
+.label {
+  -fx-text-fill: #FFFFFF;
+}
+
+.minusClick:hover {
+	-fx-cursor: hand;
+  	-fx-background-color: #000000;
+}
+
+.minimizeButton {
+	-fx-background-color: #1F3B4D;
+	-fx-text-fill: #FFF;
+}
+
+.maximizeButton {
+	-fx-background-color: #1F3B4D;
+	-fx-text-alignment: top;
+	-fx-text-fill: #FFF;
+}
+
+
+.xButton {
+	-fx-background-color: #1F3B4D;
+	-fx-text-alignment: center;
+	-fx-text-fill: #FFF;
+}
+.vbox {
+	-fx-background-color: #FFF;
+}
+
+

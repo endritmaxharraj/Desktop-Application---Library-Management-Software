@@ -21,17 +21,14 @@
               <menus>
                 <Menu mnemonicParsing="false" styleClass="BarMenu" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" styleClass="BarMenu" text="Close" />
+                    <MenuItem mnemonicParsing="false" onAction="#onLogoutNavClick" styleClass="BarMenu" text="Ç'kyqu" />
+                        <MenuItem mnemonicParsing="false" onAction="#onCloseNavClick" styleClass="BarMenu" text="Close" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" styleClass="BarMenu" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" styleClass="BarMenu" text="Delete" />
-                  </items>
-                </Menu>
+                <Menu mnemonicParsing="false" styleClass="BarMenu" text="Edit" />
                 <Menu mnemonicParsing="false" styleClass="BarMenu" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" styleClass="BarMenu" text="About" />
+                    <MenuItem mnemonicParsing="false" onAction="#onAboutClick" styleClass="BarMenu" text="About" />
                   </items>
                 </Menu>
               </menus>
