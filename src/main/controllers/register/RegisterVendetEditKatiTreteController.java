@@ -5,9 +5,13 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import com.jfoenix.controls.JFXAutoCompletePopup;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,6 +32,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import main.models.Lexuesit;
 import main.models.Vendet;
 import main.utils.DBConnector;
 
@@ -94,10 +99,52 @@ public class RegisterVendetEditKatiTreteController implements Initializable {
 	@FXML
 	Label labSuccess;
 
+	ObservableList<Lexuesit> oblist = FXCollections.observableArrayList();
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		ObservableList<String> sektoriList = FXCollections.observableArrayList("Kati i trete");
 		comboBox.getItems().addAll(sektoriList);
+
+		try {
+			suggestEmriMbiemriPrejDatabase();
+		} catch (Exception e) {
+			e.getCause();
+		}
+	}
+
+	void suggestEmriMbiemriPrejDatabase() throws Exception {
+		JFXAutoCompletePopup<String> autoCompletePopup = new JFXAutoCompletePopup<>();
+
+		autoCompletePopup.getSuggestions().addAll(getAllEmriMbiemriPrejDb());
+
+		autoCompletePopup.setSelectionHandler(event -> {
+			emriMbiemriField.setText(event.getObject());
+		});
+
+		// filter
+		emriMbiemriField.textProperty().addListener(observable -> {
+			autoCompletePopup.filter(string -> string.toLowerCase().contains(emriMbiemriField.getText().toLowerCase()));
+			if (autoCompletePopup.getFilteredSuggestions().isEmpty() || emriMbiemriField.getText().isEmpty()) {
+				autoCompletePopup.hide();
+				// nese e fshin emrimbiemri qiti krejt suggests tmundeshem
+			} else {
+				autoCompletePopup.show(emriMbiemriField);
+			}
+		});
+	}
+
+	public static ArrayList<String> getAllEmriMbiemriPrejDb() throws ClassNotFoundException, SQLException {
+		Connection con = DBConnector.getConnection();
+		String sql = "Select * From Lexuesit";
+		PreparedStatement stmt = con.prepareStatement(sql);
+		ResultSet rst = stmt.executeQuery();
+		ArrayList<String> lexuesitList = new ArrayList<>();
+		while (rst.next()) {
+			String lexuesi = rst.getString("EmriMbiemri");
+			lexuesitList.add(lexuesi);
+		}
+		return lexuesitList;
 	}
 
 	public void myfunction(String text) {

@@ -196,7 +196,7 @@ public class KerkoLexuesController implements Initializable {
 
 	@FXML
 	private void kerkoLibraClicked(ActionEvent event) throws Exception {
-		Parent parent = FXMLLoader.load(getClass().getResource("../../views/kerkoLibra.fxml"));
+		Parent parent = FXMLLoader.load(getClass().getResource("../../views/kerko/kerkoLibra.fxml"));
 		Scene scene = new Scene(parent);
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(scene);
