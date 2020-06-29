@@ -1,4 +1,4 @@
-package main.controllers;
+
 
 import java.net.URL;
 import java.sql.Connection;
@@ -24,10 +24,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import main.models.User;
-import main.repositories.UserRepository;
-import main.utils.DBConnector;
-import main.utils.SessionManager;
+
 
 public class LoginController implements Initializable {
 
@@ -64,6 +61,41 @@ public class LoginController implements Initializable {
 
 	@FXML
 	private Label lab;
+	 @FXML
+	    private Button english;
+	 @FXML
+	 private Button shqip;
+	 
+	  @FXML
+	    void English(ActionEvent event) {
+		  Stage primaryStage=new Stage();
+	    	try {
+  			Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+  			Scene scene = new Scene(root,1000,700);
+  			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+  			primaryStage.setScene(scene);
+  			primaryStage.show();ok
+  		} catch(Exception e) {
+  			e.printStackTrace();
+  		}
+      }
+
+	    
+	   @FXML
+	    void Shqip(ActionEvent event) {
+		   Stage primaryStage=new Stage();
+	    	try {
+   			Parent root = FXMLLoader.load(getClass().getResource("login2.fxml"));
+   			Scene scene = new Scene(root,1000,700);
+   			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+   			primaryStage.setScene(scene);
+   			primaryStage.show();
+   		} catch(Exception e) {
+   			e.printStackTrace();
+   		}
+       }
+
+	    }
 
 	@FXML
 	private void min(MouseEvent event) {
