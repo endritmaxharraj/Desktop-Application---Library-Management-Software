@@ -99,3 +99,11 @@ CREATE TABLE IF NOT EXISTS Vendet (
  foreign key(EmriMbiemri) references Lexuesit(EmriMbiemri) on delete cascade
 )
 ENGINE = InnoDB;
+ --tabela per TO DO LIST 
+CREATE  TABLE todolist(
+id INT (5) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+data DATE NOT NULL,
+text VARCHAR(100) NOT NULL
+);
+
+
