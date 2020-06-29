@@ -74,7 +74,7 @@ public class LoginController implements Initializable {
 	    	try {
   			Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
   			Scene scene = new Scene(root,1000,700);
-  			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+  			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
   			primaryStage.setScene(scene);
   			primaryStage.show();ok
   		} catch(Exception e) {
@@ -89,7 +89,7 @@ public class LoginController implements Initializable {
 	    	try {
    			Parent root = FXMLLoader.load(getClass().getResource("login2.fxml"));
    			Scene scene = new Scene(root,1000,700);
-   			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+   			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
    			primaryStage.setScene(scene);
    			primaryStage.show();
    		} catch(Exception e) {
