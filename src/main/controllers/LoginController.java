@@ -1,9 +1,12 @@
+package main.controllers;
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Date;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -76,7 +79,7 @@ public class LoginController implements Initializable {
   			Scene scene = new Scene(root,1000,700);
   			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
   			primaryStage.setScene(scene);
-  			primaryStage.show();ok
+			primaryStage.show();
   		} catch(Exception e) {
   			e.printStackTrace();
   		}
@@ -97,7 +100,7 @@ public class LoginController implements Initializable {
    		}
        }
 
-	    }
+
 
 	@FXML
 	private void min(MouseEvent event) {

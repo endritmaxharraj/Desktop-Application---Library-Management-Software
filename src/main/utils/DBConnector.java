@@ -49,6 +49,12 @@ public class DBConnector {
 				+ "Viti_Botimit int not null,\n" + "ISBNKodi LONG NOT NULL,\n" + "Sasia int null,\n"
 				+ "Primary Key(Emri_Librit_Autori))\n" + "ENGINE = InnoDB;", autoIncFunc));
 
+		
+		queries.add(String
+				.format("CREATE TABLE IF NOT EXISTS todolist(\n" + "id INT (5) PRIMARY KEY AUTO_INCREMENT NOT NULL,\n"
+						+ "data DATE NOT NULL,\n" + "text VARCHAR(100) NOT NULL\n" + ");", autoIncFunc));
+		
+
 		queries.add(String.format("CREATE TABLE IF NOT EXISTS MbajtesitLibrave (\n"
 				+ "EmriMbiemri varchar(50) NOT NULL,\n"
 				+ "Emri_Librit_Autori varchar(50) NOT NULL,\n" + "Data_Marrjes DATE NOT NULL,\n"
@@ -100,6 +106,7 @@ public class DBConnector {
 				+ "    SELECT Emri_Librit_Autori FROM RegjistrimiLibrave WHERE Emri_Librit_Autori = 'Keshtjella, Ismail Kadare'\n"
 				+ ") LIMIT 1;",
 				autoIncFunc));
+
 
 		Connection con = getConnection();
 		for (String query : queries) {

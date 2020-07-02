@@ -239,6 +239,18 @@ public class MainController implements Initializable {
 
 	@FXML
 	private void shenimetButtonClicked(ActionEvent event) throws Exception {
+		Parent parent = FXMLLoader.load(getClass().getResource("../views/todolist.fxml"));
+		Scene scene = new Scene(parent);
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setScene(scene);
+		SessionManager.user = null;
+		primaryStage.centerOnScreen();
+		primaryStage.show();
+		scene.setOnKeyPressed(e -> {
+			if (e.getCode() == KeyCode.ESCAPE) {
+				primaryStage.close();
+			}
+		});
 	}
 
 	@FXML

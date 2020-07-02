@@ -1,24 +1,27 @@
 package main.models;
 
+import java.net.URL;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import todolist.Database;
+import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import main.utils.Database;
 
-public class TodolistController {
+public class ToDoList implements Initializable {
 	
 	 @FXML
 	    private TextField data;
@@ -99,5 +102,11 @@ public class TodolistController {
     		 table.setItems(db);
 	      
 	    }
+
+		@Override
+		public void initialize(URL arg0, ResourceBundle arg1) {
+			// TODO Auto-generated method stub
+
+		}
 
 }
